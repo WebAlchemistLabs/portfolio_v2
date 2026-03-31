@@ -10,6 +10,7 @@ export type Project = {
   tags: string[]
   link?: string
   github?: string
+  image?: string
   featured: boolean
   badge?: string
 }
@@ -28,8 +29,10 @@ export const projects: Project[] = [
       'Built a multi-tenant SaaS dashboard with Firebase Auth, Firestore real-time listeners, role-based access for admins and clients, custom reporting modules, and data visualization charts.',
     impact:
       'Agencies can deliver live client dashboards instead of static PDFs, reducing reporting time by hours each week and improving client retention through full transparency.',
-    tags: ['React', 'Next.js', 'Firebase', 'Firestore', 'Tailwind CSS', 'Framer Motion', 'TypeScript'],
-    github: 'https://github.com/WebAlchemistLabs',
+    tags: ['React', 'Next.js', 'Firebase', 'Firestore', 'Tailwind CSS', 'TypeScript'],
+    link: 'https://clientpulse-six.vercel.app/login',
+    github: 'https://github.com/WebAlchemistLabs/CLIENTPULSE',
+    image: '/clientpulse.png',
     featured: true,
     badge: 'SaaS',
   },
@@ -39,15 +42,17 @@ export const projects: Project[] = [
     title: 'E-Commerce Platform',
     tagline: 'Full-stack store with Stripe payments',
     description:
-      'A fully functional e-commerce web application with product listings, cart management, user authentication, and live Stripe checkout, production-ready from day one.',
+      'A fully functional e-commerce web application with product listings, cart management, user authentication, and live Stripe checkout — production-ready from day one.',
     problem:
-      'Most e-commerce demos stop at the UI layer. Building a real store requires auth, a live database, payment processing, webhooks, and order management, all fully connected.',
+      'Most e-commerce demos stop at the UI layer. Building a real store requires auth, a live database, payment processing, webhooks, and order management — all connected.',
     solution:
       'Built end-to-end with Firebase Auth for accounts, Firestore for product and order data, and Stripe for secure checkout with webhook-based order confirmation.',
     impact:
       'Proves ability to integrate payment APIs, handle sensitive data securely, and deliver a complete full-stack application that a real business could use immediately.',
-    tags: ['React', 'Firebase', 'Stripe', 'Node.js', 'Tailwind CSS', 'Firestore'],
-    github: 'https://github.com/WebAlchemistLabs',
+    tags: ['React', 'Firebase', 'Stripe', 'Node.js', 'Tailwind CSS'],
+    link: 'https://webalchemistlabs-ecommerce.vercel.app/',
+    github: 'https://github.com/WebAlchemistLabs/web-alchemist-labs-ecommerce',
+    image: '/ecommerce.png',
     featured: true,
     badge: 'Full-Stack',
   },
@@ -65,7 +70,9 @@ export const projects: Project[] = [
     impact:
       'Directly targets IT support and help desk roles, demonstrating a solid understanding of real enterprise tooling and the ability to build internal productivity systems.',
     tags: ['React', 'MySQL', 'Node.js', 'REST API', 'Tailwind CSS'],
-    github: 'https://github.com/WebAlchemistLabs',
+    link: 'https://helpdesk-pro-scrr.onrender.com/',
+    github: 'https://github.com/WebAlchemistLabs/helpdesk-pro',
+    image: '/helpdesk.png',
     featured: true,
     badge: 'IT / Support',
   },
@@ -75,15 +82,17 @@ export const projects: Project[] = [
     title: 'NorBec Landscaping',
     tagline: 'Online booking platform for service-based businesses',
     description:
-      'A production-ready booking platform built for a local landscaping company. The site enables customers to browse services and submit booking requests online, giving the business a professional web presence built to convert visitors into leads.',
+      'A production-ready booking platform built for a local landscaping company, enabling customers to browse services and submit booking requests online.',
     problem:
-      'The business had no online presence and relied entirely on referrals. Potential customers searching for landscaping services could not find them, resulting in lost revenue and limited growth.',
+      'The business had no online presence and relied entirely on referrals. Potential customers searching for landscaping services could not find them, resulting in lost revenue.',
     solution:
       'Designed and developed a mobile-first, SEO-optimised website with a service catalogue, a structured booking request form, and a clean visual identity aligned with the company brand.',
     impact:
       'Delivered a client-ready product that established the business online, gave customers a clear path to book services, and demonstrated the ability to translate a real business need into a functional digital product.',
     tags: ['Next.js', 'Tailwind CSS', 'Responsive Design', 'SEO', 'Vercel'],
-    github: 'https://github.com/WebAlchemistLabs',
+    link: 'https://norbec-landscaping-website.onrender.com',
+    github: 'https://github.com/WebAlchemistLabs/norbec-landscaping-website',
+    image: '/booking.png',
     featured: true,
     badge: 'Client Work',
   },

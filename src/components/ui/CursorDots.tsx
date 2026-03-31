@@ -1,13 +1,23 @@
 'use client'
 
-import { useEffect, useRef } from 'react'
+import { useEffect, useRef, useState } from 'react'
 
 const TRAIL = 14
 
 export default function CursorDots() {
   const canvasRef = useRef<HTMLCanvasElement>(null)
+  const [isMobile, setIsMobile] = useState(false)
 
   useEffect(() => {
+    const checkMobile = () => setIsMobile(window.innerWidth < 768)
+    checkMobile()
+    window.addEventListener('resize', checkMobile)
+    return () => window.removeEventListener('resize', checkMobile)
+  }, [])
+
+  useEffect(() => {
+    if (isMobile) return
+
     const canvas = canvasRef.current
     if (!canvas) return
     const ctx = canvas.getContext('2d')
@@ -18,20 +28,23 @@ export default function CursorDots() {
     canvas.width = W
     canvas.height = H
 
-    window.addEventListener('resize', () => {
+    const handleResize = () => {
       W = window.innerWidth
       H = window.innerHeight
       canvas.width = W
       canvas.height = H
-    })
+    }
 
     const mouse = { x: W / 2, y: H / 2 }
     const trail: { x: number; y: number }[] = Array.from({ length: TRAIL }, () => ({ ...mouse }))
 
-    window.addEventListener('mousemove', (e) => {
+    const handleMouseMove = (e: MouseEvent) => {
       mouse.x = e.clientX
       mouse.y = e.clientY
-    })
+    }
+
+    window.addEventListener('resize', handleResize)
+    window.addEventListener('mousemove', handleMouseMove)
 
     const COLORS = ['rgba(201,169,110,', 'rgba(180,140,255,', 'rgba(100,160,255,']
     let raf: number
@@ -51,9 +64,17 @@ export default function CursorDots() {
       })
       raf = requestAnimationFrame(draw)
     }
+
     draw()
-    return () => cancelAnimationFrame(raf)
-  }, [])
+
+    return () => {
+      cancelAnimationFrame(raf)
+      window.removeEventListener('resize', handleResize)
+      window.removeEventListener('mousemove', handleMouseMove)
+    }
+  }, [isMobile])
+
+  if (isMobile) return null
 
   return (
     <canvas
