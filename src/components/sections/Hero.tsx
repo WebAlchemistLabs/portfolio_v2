@@ -2,121 +2,206 @@
 
 import { useEffect, useState } from 'react'
 import { motion } from 'framer-motion'
-import { ArrowRight, GitBranch, Link, Mail } from 'lucide-react'
+import { ArrowDown, GitBranch, Link, Mail } from 'lucide-react'
 
-const roles = ['Frontend Dev.', 'UI/UX Dev.', 'React Dev.', 'Full-Stack Dev.']
+const roles = ['Frontend Developer', 'UI/UX Developer', 'React Developer', 'Full-Stack Developer']
 
 export default function Hero() {
   const [roleIndex, setRoleIndex] = useState(0)
-  const [visible, setVisible] = useState(true)
+  const [roleVisible, setRoleVisible] = useState(true)
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setVisible(false)
+      setRoleVisible(false)
       setTimeout(() => {
         setRoleIndex((i) => (i + 1) % roles.length)
-        setVisible(true)
-      }, 300)
-    }, 2600)
+        setRoleVisible(true)
+      }, 400)
+    }, 3000)
     return () => clearInterval(interval)
   }, [])
 
   return (
-    <section className="relative min-h-screen flex flex-col justify-end px-6 md:px-12 pt-14 pb-16 max-w-[1400px] mx-auto">
+    <section className="relative w-full min-h-screen overflow-hidden flex items-center justify-center py-20">
 
-      <div className="absolute top-1/2 right-12 -translate-y-1/2 hidden lg:flex flex-col gap-6 items-center">
-        {[
-          { href: 'https://github.com/WebAlchemistLabs', Icon: GitBranch, label: 'GH' },
-          { href: 'https://linkedin.com/in/your-url', Icon: Link, label: 'LI' },
-          { href: 'mailto:your@email.com', Icon: Mail, label: 'EM' },
-        ].map(({ href, Icon, label }) => (
-          <a
-            key={label}
-            href={href}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex flex-col items-center gap-1 group"
+      {/* Full-screen hero.png background */}
+      <div
+        className="absolute inset-0 z-0"
+        style={{
+          backgroundImage: 'url(/hero.png)',
+          backgroundSize: 'cover',
+          backgroundPosition: 'center top',
+          backgroundRepeat: 'no-repeat',
+        }}
+      />
+
+      {/* Overlay — lighter so image stays visible but text is readable */}
+      <div className="absolute inset-0 z-[1]" style={{ background: 'rgba(10,10,14,0.28)' }} />
+
+      {/* Giant grey glassmorphism panel */}
+      <motion.div
+        initial={{ opacity: 0, y: 28, scale: 0.97 }}
+        animate={{ opacity: 1, y: 0, scale: 1 }}
+        transition={{ duration: 1.4, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
+        className="relative z-10 w-full mx-5 md:mx-12 lg:mx-20"
+        style={{ maxWidth: 1240 }}
+      >
+        {/* Subtle border glow */}
+        <div className="absolute -inset-[1px] rounded-2xl pointer-events-none" style={{
+          background: 'linear-gradient(135deg, rgba(255,255,255,0.08), rgba(255,255,255,0.02), rgba(255,255,255,0.06))',
+          borderRadius: 18,
+        }} />
+
+        {/* Glass panel — grey toned, semi-transparent */}
+        <div
+          className="relative rounded-2xl overflow-hidden px-10 md:px-16 lg:px-20 py-16 md:py-20"
+          style={{
+            background: 'rgba(22,22,30,0.25)',
+            backdropFilter: 'blur(18px)',
+            WebkitBackdropFilter: 'blur(18px)',
+            border: '1px solid rgba(255,255,255,0.06)',
+            boxShadow: '0 20px 80px rgba(0,0,0,0.25), inset 0 1px 0 rgba(255,255,255,0.05)',
+          }}
+        >
+          {/* Available badge */}
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.7, duration: 0.9 }}
+            className="inline-flex items-center gap-2.5 mb-10 px-4 py-2 rounded-full"
+            style={{ background: 'rgba(255,255,255,0.06)', border: '1px solid rgba(255,255,255,0.1)' }}
           >
-            <Icon size={14} className="text-[#444444] group-hover:text-[#EFEFEF] transition-colors" />
-            <span className="font-mono-dm text-[9px] text-[#444444] group-hover:text-[#EFEFEF] transition-colors tracking-widest">{label}</span>
-          </a>
-        ))}
-        <div className="w-px h-16 bg-[#222222] mt-2" />
-      </div>
+            <span className="w-1.5 h-1.5 rounded-full bg-green-400 animate-pulse" />
+            <span className="font-mono-dm text-[10px] text-[#B8B4C0] tracking-[0.25em] uppercase">Available for work</span>
+          </motion.div>
 
+          {/* Hi, I'm MARLON */}
+          <div className="mb-5">
+            <div className="overflow-hidden">
+              <motion.p
+                initial={{ y: '110%', opacity: 0 }}
+                animate={{ y: '0%', opacity: 1 }}
+                transition={{ duration: 0.9, delay: 0.5, ease: [0.16, 1, 0.3, 1] }}
+                className="font-mono-dm text-[18px] md:text-2xl tracking-[0.3em] uppercase mb-4"
+                style={{ color: '#C9A96E' }}
+              >
+                Hi, I'm
+              </motion.p>
+            </div>
+            <div className="overflow-hidden">
+              <motion.h1
+                initial={{ y: '100%', opacity: 0 }}
+                animate={{ y: '0%', opacity: 1 }}
+                transition={{ duration: 1.1, delay: 0.65, ease: [0.16, 1, 0.3, 1] }}
+                className="font-display font-bold leading-[0.95] tracking-tight"
+                style={{ fontSize: 'clamp(56px, 9vw, 140px)', color: '#F2EFE8' }}
+              >
+                MARLON
+              </motion.h1>
+            </div>
+          </div>
+
+          {/* Subheader */}
+          <div className="overflow-hidden mb-10">
+            <motion.p
+              initial={{ y: '100%', opacity: 0 }}
+              animate={{ y: '0%', opacity: 1 }}
+              transition={{ duration: 1.0, delay: 0.9, ease: [0.16, 1, 0.3, 1] }}
+              className="font-display italic leading-[1.3]"
+              style={{
+                fontSize: 'clamp(18px, 2.4vw, 34px)',
+                color: 'rgba(242,239,232,0.75)',
+                maxWidth: 720,
+              }}
+            >
+              I build high-performance web apps & digital products that are scalable, fast, and built for real impact.
+            </motion.p>
+          </div>
+
+          {/* Role ticker */}
+          <motion.div
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 1.3, duration: 0.8 }}
+            className="flex items-center gap-4 mb-12"
+          >
+            <span className="font-mono-dm text-[11px] tracking-widest uppercase" style={{ color: 'rgba(155,151,160,0.7)' }}>Currently:</span>
+            <span
+              className="font-mono-dm text-[11px] tracking-widest uppercase transition-all duration-300"
+              style={{ color: '#C9A96E', opacity: roleVisible ? 1 : 0, transform: roleVisible ? 'translateY(0)' : 'translateY(5px)' }}
+            >
+              {roles[roleIndex]}
+            </span>
+          </motion.div>
+
+          {/* CTAs */}
+          <motion.div
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 1.55, duration: 0.8 }}
+            className="flex flex-wrap items-center gap-4 mb-14"
+          >
+            <a
+              href="#projects"
+              className="inline-flex items-center gap-3 font-mono-dm text-[11px] px-8 py-4 tracking-[0.18em] uppercase transition-all duration-300"
+              style={{ background: 'rgba(201,169,110,0.14)', border: '1px solid rgba(201,169,110,0.4)', color: '#C9A96E' }}
+              onMouseEnter={e => { const el = e.currentTarget as HTMLElement; el.style.background = 'rgba(201,169,110,0.24)'; el.style.borderColor = 'rgba(201,169,110,0.7)' }}
+              onMouseLeave={e => { const el = e.currentTarget as HTMLElement; el.style.background = 'rgba(201,169,110,0.14)'; el.style.borderColor = 'rgba(201,169,110,0.4)' }}
+            >
+              View Work <ArrowDown size={14} />
+            </a>
+            <a
+              href="#contact"
+              className="inline-flex items-center gap-2 font-mono-dm text-[11px] px-8 py-4 tracking-[0.18em] uppercase transition-all duration-300"
+              style={{ border: '1px solid rgba(255,255,255,0.14)', color: 'rgba(242,239,232,0.7)' }}
+              onMouseEnter={e => { const el = e.currentTarget as HTMLElement; el.style.borderColor = 'rgba(255,255,255,0.3)'; el.style.color = '#F2EFE8' }}
+              onMouseLeave={e => { const el = e.currentTarget as HTMLElement; el.style.borderColor = 'rgba(255,255,255,0.14)'; el.style.color = 'rgba(242,239,232,0.7)' }}
+            >
+              Get in Touch →
+            </a>
+          </motion.div>
+
+          {/* Social links */}
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 1.9, duration: 0.9 }}
+            className="flex items-center gap-8 pt-8"
+            style={{ borderTop: '1px solid rgba(255,255,255,0.07)' }}
+          >
+            {[
+              { href: 'https://github.com/WebAlchemistLabs', Icon: GitBranch, label: 'GitHub' },
+              { href: 'https://www.linkedin.com/in/marlon-haynes-3bb010391/', Icon: Link, label: 'LinkedIn' },
+              { href: 'mailto:webalchemistlabs@gmail.com', Icon: Mail, label: 'Email' },
+            ].map(({ href, Icon, label }) => (
+              <a key={label} href={href} target={label !== 'Email' ? '_blank' : undefined} rel="noopener noreferrer"
+                className="flex items-center gap-2 font-mono-dm text-[10px] tracking-widest uppercase transition-colors duration-300"
+                style={{ color: '#F2EFE8' }}
+                onMouseEnter={e => (e.currentTarget as HTMLElement).style.color = '#C9A96E'}
+                onMouseLeave={e => (e.currentTarget as HTMLElement).style.color = '#F2EFE8'}
+              >
+                <Icon size={13} />{label}
+              </a>
+            ))}
+          </motion.div>
+        </div>
+      </motion.div>
+
+      {/* Scroll indicator */}
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        transition={{ duration: 0.4 }}
-        className="mb-8"
+        transition={{ delay: 2.5, duration: 1 }}
+        className="absolute bottom-8 right-10 z-20 flex flex-col items-center gap-3"
       >
-        <span className="font-mono-dm text-xs text-[#444444] tracking-[0.3em] uppercase">
-          — Marlon Haynes / Software Engineer / Canada
-        </span>
+        <span className="font-mono-dm text-[9px] tracking-[0.3em] uppercase" style={{ writingMode: 'vertical-rl', color: '#4A4755' }}>Scroll</span>
+        <motion.div
+          animate={{ scaleY: [1, 0.3, 1] }}
+          transition={{ duration: 2, repeat: Infinity, ease: 'easeInOut' }}
+          className="w-px h-10 origin-top"
+          style={{ background: 'linear-gradient(to bottom, #4A4755, transparent)' }}
+        />
       </motion.div>
-
-      <motion.h1
-        initial={{ opacity: 0, y: 40 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.7, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
-        className="font-pixel leading-[1.6] mb-10"
-        style={{ fontSize: 'clamp(18px, 3.5vw, 52px)', color: '#EFEFEF' }}
-      >
-        BUILDING
-        <br />
-        <span style={{ color: '#2A2A2A' }}>THINGS FOR</span>
-        <br />
-        THE WEB.
-      </motion.h1>
-
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5, delay: 0.3 }}
-        className="flex items-center gap-3 mb-10"
-      >
-        <span className="font-mono-dm text-xs text-[#444444] tracking-widest uppercase">Currently:</span>
-        <span
-          className="font-mono-dm text-xs text-accent tracking-widest uppercase transition-all duration-300"
-          style={{ opacity: visible ? 1 : 0, transform: visible ? 'translateY(0)' : 'translateY(4px)' }}
-        >
-          {roles[roleIndex]}
-        </span>
-      </motion.div>
-
-      <motion.p
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 0.5, delay: 0.4 }}
-        className="font-body text-sm text-[#888888] max-w-md leading-relaxed mb-12"
-      >
-        Software Engineering student at Centennial College. Building production-quality web applications with React, Next.js, and Firebase. Available for frontend, UI/UX, and full-stack roles.
-      </motion.p>
-
-      <motion.div
-        initial={{ opacity: 0, y: 10 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5, delay: 0.5 }}
-        className="flex flex-wrap items-center gap-4"
-      >
-        <a
-          href="#projects"
-          className="inline-flex items-center gap-3 font-mono-dm text-xs text-[#EFEFEF] bg-accent hover:bg-accent-hover px-6 py-3 tracking-widest uppercase transition-colors"
-        >
-          View Work <ArrowRight size={14} />
-        </a>
-        <a
-          href="#contact"
-          className="inline-flex items-center gap-3 font-mono-dm text-xs text-[#888888] border border-[#222222] hover:border-[#444444] hover:text-[#EFEFEF] px-6 py-3 tracking-widest uppercase transition-all"
-        >
-          Get in Touch
-        </a>
-      </motion.div>
-
-      <div className="absolute bottom-8 left-6 md:left-12 flex items-center gap-3 opacity-30">
-        <div className="w-8 h-px bg-[#444444]" />
-        <span className="font-mono-dm text-[9px] text-[#444444] tracking-[0.3em] uppercase">Scroll</span>
-      </div>
     </section>
   )
 }

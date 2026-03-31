@@ -1,5 +1,6 @@
 export type Project = {
   id: string
+  slug: string
   title: string
   tagline: string
   description: string
@@ -15,71 +16,75 @@ export type Project = {
 
 export const projects: Project[] = [
   {
-    id: 'biztrack',
-    title: 'BizTrack',
-    tagline: 'SaaS analytics dashboard',
+    id: 'clientpulse',
+    slug: 'clientpulse',
+    title: 'ClientPulse',
+    tagline: 'Multi-client SaaS reporting platform',
     description:
-      'A multi-tenant SaaS analytics platform with real-time data, role-based access control, and a clean dashboard UI built for small business owners.',
+      'A premium SaaS platform built for agencies and freelancers to manage client reporting, analytics dashboards, and performance tracking in one place.',
     problem:
-      'Small business owners lack affordable, simple tools to track key metrics in real time without complex enterprise software.',
+      'Agencies spend hours manually compiling client reports across disconnected tools. No single product provides a clean, real-time view of all client performance data.',
     solution:
-      'Built a full-stack SaaS dashboard with Firebase Auth, Firestore real-time listeners, role-based access (admin/viewer), and a responsive React UI with live charts.',
+      'Built a multi-tenant SaaS dashboard with Firebase Auth, Firestore real-time listeners, role-based access for admins and clients, custom reporting modules, and data visualization charts.',
     impact:
-      'Demonstrates ability to architect a multi-tenant SaaS product with auth, real-time data, and role management — core skills for any frontend or full-stack role.',
-    tags: ['React', 'Next.js', 'Firebase', 'Tailwind CSS', 'Firestore', 'Auth'],
+      'Agencies can deliver live client dashboards instead of static PDFs, reducing reporting time by hours each week and improving client retention through full transparency.',
+    tags: ['React', 'Next.js', 'Firebase', 'Firestore', 'Tailwind CSS', 'Framer Motion', 'TypeScript'],
     github: 'https://github.com/WebAlchemistLabs',
     featured: true,
     badge: 'SaaS',
   },
   {
     id: 'ecommerce',
+    slug: 'ecommerce',
     title: 'E-Commerce Platform',
     tagline: 'Full-stack store with Stripe payments',
     description:
-      'A fully functional e-commerce web application with product listings, cart management, user authentication, and live Stripe checkout integration.',
+      'A fully functional e-commerce web application with product listings, cart management, user authentication, and live Stripe checkout, production-ready from day one.',
     problem:
-      'Most e-commerce tutorials stop at the UI — they never wire up real payments, auth, or a database. I needed to build the real thing end to end.',
+      'Most e-commerce demos stop at the UI layer. Building a real store requires auth, a live database, payment processing, webhooks, and order management, all fully connected.',
     solution:
-      'Built a complete store with Firebase Auth for user accounts, Firestore for product and order data, and Stripe for secure payment processing with webhooks.',
+      'Built end-to-end with Firebase Auth for accounts, Firestore for product and order data, and Stripe for secure checkout with webhook-based order confirmation.',
     impact:
-      'Proves I can integrate third-party payment APIs, handle sensitive data securely, and build a production-ready full-stack application from scratch.',
-    tags: ['React', 'Firebase', 'Stripe', 'Node.js', 'Tailwind CSS'],
+      'Proves ability to integrate payment APIs, handle sensitive data securely, and deliver a complete full-stack application that a real business could use immediately.',
+    tags: ['React', 'Firebase', 'Stripe', 'Node.js', 'Tailwind CSS', 'Firestore'],
     github: 'https://github.com/WebAlchemistLabs',
     featured: true,
     badge: 'Full-Stack',
   },
   {
-    id: 'helpdesk',
-    title: 'IT Help Desk System',
-    tagline: 'Ticket management for IT support teams',
+    id: 'help-desk',
+    slug: 'help-desk',
+    title: 'Help Desk System',
+    tagline: 'IT support ticket management platform',
     description:
-      'A web-based IT ticketing system that allows users to submit support requests and agents to manage, assign, and resolve tickets with status tracking.',
+      'A web-based IT ticketing system with user submission, agent dashboards, ticket lifecycle management, priority tagging, and status tracking built for real support teams.',
     problem:
-      'Small IT teams often rely on email chains or spreadsheets to manage support tickets — slow, disorganized, and hard to track.',
+      'Small IT teams rely on email threads and spreadsheets to manage support requests, leading to slow resolution times, lost tickets, and zero visibility into agent performance.',
     solution:
-      'Built a ticket management system with user submission forms, agent dashboard, ticket status workflow (open/in-progress/resolved), and priority tagging.',
+      'Built a full ticket management system with submission forms, an agent command dashboard, ticket status workflow from open through to resolved, and priority classification.',
     impact:
-      'Directly targets help desk and IT support roles — shows I understand the tooling used in real IT environments and can build internal tools.',
+      'Directly targets IT support and help desk roles, demonstrating a solid understanding of real enterprise tooling and the ability to build internal productivity systems.',
     tags: ['React', 'MySQL', 'Node.js', 'REST API', 'Tailwind CSS'],
     github: 'https://github.com/WebAlchemistLabs',
     featured: true,
     badge: 'IT / Support',
   },
   {
-    id: 'norbec',
+    id: 'booking',
+    slug: 'booking',
     title: 'NorBec Landscaping',
-    tagline: 'Client booking website',
+    tagline: 'Online booking platform for service-based businesses',
     description:
-      'A professional business website for a landscaping company featuring service listings, a booking/contact form, and mobile-first responsive design.',
+      'A production-ready booking platform built for a local landscaping company. The site enables customers to browse services and submit booking requests online, giving the business a professional web presence built to convert visitors into leads.',
     problem:
-      'The client had no web presence and was losing potential customers who searched for landscaping services online.',
+      'The business had no online presence and relied entirely on referrals. Potential customers searching for landscaping services could not find them, resulting in lost revenue and limited growth.',
     solution:
-      'Designed and built a clean, fast, mobile-first website with service pages, a contact/booking form, and SEO basics to help the business get found online.',
+      'Designed and developed a mobile-first, SEO-optimised website with a service catalogue, a structured booking request form, and a clean visual identity aligned with the company brand.',
     impact:
-      'Real client project that shows I can deliver professional work, communicate with non-technical stakeholders, and build sites that serve a business goal.',
-    tags: ['Next.js', 'Tailwind CSS', 'Responsive Design', 'SEO'],
+      'Delivered a client-ready product that established the business online, gave customers a clear path to book services, and demonstrated the ability to translate a real business need into a functional digital product.',
+    tags: ['Next.js', 'Tailwind CSS', 'Responsive Design', 'SEO', 'Vercel'],
     github: 'https://github.com/WebAlchemistLabs',
-    featured: false,
+    featured: true,
     badge: 'Client Work',
   },
 ]

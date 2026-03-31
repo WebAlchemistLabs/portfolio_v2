@@ -5,17 +5,21 @@ import CredibilityBar from '@/components/sections/CredibilityBar'
 import About from '@/components/sections/About'
 import Projects from '@/components/sections/Projects'
 import Skills from '@/components/sections/Skills'
+import Education from '@/components/sections/Education'
 import Contact from '@/components/sections/Contact'
+import CursorDots from '@/components/ui/CursorDots'
 
 export default function Home() {
   return (
-    <main className="bg-[#0A0A0A] min-h-screen">
+    <main style={{ backgroundColor: '#0E0E12', minHeight: '100vh' }}>
+      <CursorDots />
       <Navbar />
       <Hero />
       <CredibilityBar />
       <About />
       <Projects />
       <Skills />
+      <Education />
       <Contact />
       <Footer />
     </main>

@@ -1,12 +1,6 @@
 import type { Metadata } from 'next'
-import { Syne, DM_Sans } from 'next/font/google'
+import { DM_Sans, DM_Mono } from 'next/font/google'
 import './globals.css'
-
-const syne = Syne({
-  subsets: ['latin'],
-  variable: '--font-syne',
-  weight: ['400', '500', '600', '700', '800'],
-})
 
 const dmSans = DM_Sans({
   subsets: ['latin'],
@@ -14,28 +8,27 @@ const dmSans = DM_Sans({
   weight: ['300', '400', '500'],
 })
 
+const dmMono = DM_Mono({
+  subsets: ['latin'],
+  variable: '--font-dm-mono',
+  weight: ['300', '400', '500'],
+})
+
 export const metadata: Metadata = {
-  title: 'Marlon Haynes — Frontend Developer',
-  description:
-    'Full-stack developer specializing in React, Next.js, and modern web applications. Available for frontend, UI/UX, and full-stack roles.',
-  keywords: ['frontend developer', 'React', 'Next.js', 'Toronto', 'Canada'],
+  title: 'Marlon Haynes | Frontend Developer',
+  description: 'Full-stack developer building high-performance web apps and digital products. Available for frontend, UI/UX, and full-stack roles in Canada.',
+  keywords: ['frontend developer', 'React', 'Next.js', 'Canada', 'UI/UX', 'WebAlchemistLabs'],
   openGraph: {
-    title: 'Marlon Haynes — Frontend Developer',
-    description: 'Building modern web applications with React and Next.js.',
+    title: 'Marlon Haynes | Frontend Developer',
+    description: 'Building high-performance web apps and digital products.',
     type: 'website',
   },
 }
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode
-}) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={`${syne.variable} ${dmSans.variable} dark`}>
-      <body className="font-body bg-bg text-text antialiased">
-        {children}
-      </body>
+    <html lang="en" className={`${dmSans.variable} ${dmMono.variable}`}>
+      <body>{children}</body>
     </html>
   )
 }

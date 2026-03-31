@@ -2,114 +2,247 @@
 
 import { useState, useRef } from 'react'
 import { motion, useInView } from 'framer-motion'
-import { ArrowRight, GitBranch, Link, Mail, Send } from 'lucide-react'
+import { ArrowRight, GitBranch, Link, Mail, Send, CheckCircle, AlertCircle } from 'lucide-react'
 
-function Reveal({ children, delay = 0 }: { children: React.ReactNode; delay?: number }) {
+function Reveal({ children, delay = 0, className = '' }: { children: React.ReactNode; delay?: number; className?: string }) {
   const ref = useRef(null)
   const inView = useInView(ref, { once: true, margin: '-60px' })
   return (
-    <motion.div ref={ref} initial={{ opacity: 0, y: 20 }} animate={inView ? { opacity: 1, y: 0 } : {}} transition={{ duration: 0.6, delay, ease: [0.16, 1, 0.3, 1] }}>
+    <motion.div ref={ref} className={className}
+      initial={{ opacity: 0, y: 24 }}
+      animate={inView ? { opacity: 1, y: 0 } : {}}
+      transition={{ duration: 0.85, delay, ease: [0.16, 1, 0.3, 1] }}
+    >
       {children}
     </motion.div>
   )
 }
 
-const inputClass = "w-full bg-transparent border border-[#1A1A1A] px-4 py-3 text-sm text-[#EFEFEF] font-body placeholder:text-[#333333] focus:outline-none focus:border-[#444444] transition-colors"
+type Status = 'idle' | 'sending' | 'success' | 'error'
+
+type FormData = {
+  name: string
+  email: string
+  message: string
+}
+
+type Errors = Partial<Record<keyof FormData, string>>
+
+const inputBase = "w-full bg-transparent border-b border-[#2A2A36] px-0 py-4 text-sm text-[#F2EFE8] font-light placeholder:text-[#3A3835] focus:outline-none transition-colors duration-300"
 
 export default function Contact() {
-  const [formData, setFormData] = useState({ name: '', email: '', message: '' })
-  const [status, setStatus] = useState<'idle' | 'sending' | 'sent'>('idle')
+  const [formData, setFormData] = useState<FormData>({ name: '', email: '', message: '' })
+  const [errors, setErrors] = useState<Errors>({})
+  const [status, setStatus] = useState<Status>('idle')
+
+  const validate = (): boolean => {
+    const newErrors: Errors = {}
+    if (!formData.name.trim()) newErrors.name = 'Name is required'
+    if (!formData.email.trim()) {
+      newErrors.email = 'Email is required'
+    } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
+      newErrors.email = 'Enter a valid email'
+    }
+    if (!formData.message.trim() || formData.message.trim().length < 10) {
+      newErrors.message = 'Message must be at least 10 characters'
+    }
+    setErrors(newErrors)
+    return Object.keys(newErrors).length === 0
+  }
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
+    if (!validate()) return
     setStatus('sending')
-    await new Promise((r) => setTimeout(r, 1000))
-    setStatus('sent')
+
+    try {
+      const { default: emailjs } = await import('@emailjs/browser')
+
+      const serviceId = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID!
+      const templateId = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID!
+      const publicKey = process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY!
+
+      console.log('ENV CHECK', { serviceId, templateId, publicKey })
+
+      const result = await emailjs.send(
+        serviceId,
+        templateId,
+        {
+          from_name: formData.name,
+          from_email: formData.email,
+          message: formData.message,
+        },
+        publicKey
+      )
+
+      console.log('EmailJS success:', result)
+      setStatus('success')
+      setFormData({ name: '', email: '', message: '' })
+    } catch (error) {
+      console.error('EmailJS full error:', error)
+      alert(JSON.stringify(error))
+      setStatus('error')
+    }
   }
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    setFormData((prev) => ({ ...prev, [e.target.name]: e.target.value }))
+    const { name, value } = e.target
+    setFormData((prev) => ({ ...prev, [name]: value }))
+    if (errors[name as keyof FormData]) {
+      setErrors((prev) => ({ ...prev, [name]: undefined }))
+    }
   }
 
   const links = [
     { label: 'GitHub', sub: 'WebAlchemistLabs', href: 'https://github.com/WebAlchemistLabs', Icon: GitBranch },
-    { label: 'LinkedIn', sub: 'Connect', href: 'https://linkedin.com/in/your-url', Icon: Link },
-    { label: 'Email', sub: 'your@email.com', href: 'mailto:your@email.com', Icon: Mail },
+    { label: 'LinkedIn', sub: 'marlon-haynes-3bb010391', href: 'https://www.linkedin.com/in/marlon-haynes-3bb010391/', Icon: Link },
+    { label: 'Email', sub: 'webalchemistlabs@gmail.com', href: 'mailto:webalchemistlabs@gmail.com', Icon: Mail },
   ]
 
   return (
-    <section id="contact" className="py-24 md:py-32 px-6 md:px-12 border-t border-[#1A1A1A]">
-      <div className="max-w-[1400px] mx-auto">
+    <section id="contact" className="py-28 md:py-40 px-8 md:px-12 border-t border-[#2A2A36]">
+      <div className="max-w-[1320px] mx-auto">
         <Reveal>
-          <div className="flex items-center gap-4 mb-16">
-            <span className="font-mono-dm text-[10px] text-[#444444] tracking-[0.3em] uppercase">05 / Contact</span>
-            <div className="flex-1 h-px bg-[#1A1A1A]" />
+          <div className="flex items-center gap-5 mb-20">
+            <span className="font-mono-dm text-[10px] text-[#C9A96E]/60 tracking-[0.3em] uppercase">05 Contact</span>
+            <div className="flex-1 h-px bg-[#2A2A36]" />
           </div>
         </Reveal>
 
-        <div className="grid lg:grid-cols-2 gap-16 lg:gap-32">
-          <Reveal>
-            <div>
-              <h2 className="font-body font-black text-4xl md:text-6xl text-[#EFEFEF] leading-[1.05] tracking-tight mb-6">
-                Let us build
-                <br />
-                <span className="text-[#2A2A2A]">something.</span>
-              </h2>
-              <p className="font-body text-sm text-[#888888] leading-relaxed mb-12 max-w-sm">
-                Actively looking for frontend, UI/UX, and full-stack roles in Canada. Have an opportunity or a project? Reach out — I respond within 24 hours.
-              </p>
+        <div className="grid lg:grid-cols-12 gap-16 lg:gap-24">
 
-              <div className="space-y-0 border border-[#1A1A1A]">
+          {/* Left */}
+          <div className="lg:col-span-5">
+            <Reveal>
+              <div className="overflow-hidden mb-2">
+                <motion.h2 initial={{ y: '100%' }} whileInView={{ y: '0%' }} viewport={{ once: true }}
+                  transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
+                  className="font-display text-[clamp(34px,4.5vw,64px)] italic text-[#F2EFE8] leading-[0.95]">
+                  Let us build
+                </motion.h2>
+              </div>
+              <div className="overflow-hidden mb-10">
+                <motion.h2 initial={{ y: '100%' }} whileInView={{ y: '0%' }} viewport={{ once: true }}
+                  transition={{ duration: 0.9, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
+                  className="font-display text-[clamp(34px,4.5vw,64px)] leading-[0.95]"
+                  style={{ color: 'rgba(242,239,232,0.2)' }}>
+                  something great.
+                </motion.h2>
+              </div>
+            </Reveal>
+
+            <Reveal delay={0.15}>
+              <p className="text-sm text-[#9B97A0] leading-relaxed font-light mb-12 max-w-sm">
+                Actively seeking frontend, UI/UX, and full-stack roles in Canada. Have an opportunity or project? I respond within 24 hours.
+              </p>
+            </Reveal>
+
+            <Reveal delay={0.22}>
+              <div className="border border-[#2A2A36]">
                 {links.map(({ label, sub, href, Icon }) => (
-                  <a
-                    key={label}
-                    href={href}
-                    target="_blank"
+                  <a key={label} href={href}
+                    target={label !== 'Email' ? '_blank' : undefined}
                     rel="noopener noreferrer"
-                    className="flex items-center gap-4 px-5 py-4 border-b border-[#1A1A1A] last:border-b-0 hover:bg-[#111111] transition-colors group"
+                    className="flex items-center gap-4 px-5 py-4 border-b border-[#2A2A36] last:border-b-0 hover:bg-[#16161C] transition-colors group"
                   >
-                    <Icon size={14} className="text-[#333333] group-hover:text-accent transition-colors flex-shrink-0" />
-                    <div className="flex-1">
-                      <p className="font-mono-dm text-[10px] text-[#EFEFEF] tracking-wider uppercase">{label}</p>
-                      <p className="font-mono-dm text-[9px] text-[#444444] tracking-wider">{sub}</p>
+                    <Icon size={14} className="text-[#4A4755] group-hover:text-[#C9A96E] transition-colors flex-shrink-0" />
+                    <div className="flex-1 min-w-0">
+                      <p className="font-mono-dm text-[10px] text-[#F2EFE8] tracking-wider uppercase">{label}</p>
+                      <p className="font-mono-dm text-[9px] text-[#4A4755] tracking-wider mt-0.5 truncate">{sub}</p>
                     </div>
-                    <ArrowRight size={12} className="text-[#333333] group-hover:text-[#EFEFEF] transition-colors" />
+                    <ArrowRight size={12} className="text-[#4A4755] group-hover:text-[#C9A96E] group-hover:translate-x-1 transition-all flex-shrink-0" />
                   </a>
                 ))}
               </div>
-            </div>
-          </Reveal>
+            </Reveal>
+          </div>
 
-          <Reveal delay={0.15}>
-            {status === 'sent' ? (
-              <div className="flex flex-col items-start justify-center py-16 border border-[#1A1A1A] px-8">
-                <Send size={24} className="text-accent mb-4" />
-                <h3 className="font-body font-black text-2xl text-[#EFEFEF] mb-2">Sent.</h3>
-                <p className="font-mono-dm text-[10px] text-[#444444] tracking-widest uppercase">I will reply within 24 hours.</p>
-              </div>
-            ) : (
-              <form onSubmit={handleSubmit} className="space-y-0 border border-[#1A1A1A]">
-                <div className="border-b border-[#1A1A1A] p-1">
-                  <input type="text" name="name" required value={formData.name} onChange={handleChange} placeholder="Name" className={inputClass} />
-                </div>
-                <div className="border-b border-[#1A1A1A] p-1">
-                  <input type="email" name="email" required value={formData.email} onChange={handleChange} placeholder="Email" className={inputClass} />
-                </div>
-                <div className="border-b border-[#1A1A1A] p-1">
-                  <textarea name="message" required rows={6} value={formData.message} onChange={handleChange} placeholder="Message" className={`${inputClass} resize-none`} />
-                </div>
-                <div className="p-1">
+          {/* Right — form */}
+          <div className="lg:col-span-7">
+            <Reveal delay={0.18}>
+              {status === 'success' ? (
+                <motion.div
+                  initial={{ opacity: 0, scale: 0.96 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  className="flex flex-col items-start py-20 border border-[#2A2A36] px-10 rounded-xl"
+                >
+                  <CheckCircle size={28} className="text-green-400 mb-6" />
+                  <h3 className="font-display text-3xl italic text-[#F2EFE8] mb-3">Message sent.</h3>
+                  <p className="font-mono-dm text-[10px] text-[#4A4755] tracking-widest uppercase mb-6">I will reply within 24 hours.</p>
+                  <button
+                    onClick={() => setStatus('idle')}
+                    className="font-mono-dm text-[10px] text-[#C9A96E] tracking-widest uppercase hover:opacity-70 transition-opacity"
+                  >
+                    Send another →
+                  </button>
+                </motion.div>
+              ) : (
+                <form onSubmit={handleSubmit} className="space-y-8" noValidate>
+
+                  {/* Name */}
+                  <div>
+                    <label className="font-mono-dm text-[10px] text-[#C9A96E]/60 tracking-[0.25em] uppercase block mb-3">Name</label>
+                    <input
+                      type="text" name="name" value={formData.name} onChange={handleChange}
+                      placeholder="Your name"
+                      className={`${inputBase} ${errors.name ? 'border-red-500/60 focus:border-red-500' : 'focus:border-[#C9A96E]'}`}
+                    />
+                    {errors.name && <p className="font-mono-dm text-[9px] text-red-400 mt-2 tracking-wider">{errors.name}</p>}
+                  </div>
+
+                  {/* Email */}
+                  <div>
+                    <label className="font-mono-dm text-[10px] text-[#C9A96E]/60 tracking-[0.25em] uppercase block mb-3">Email</label>
+                    <input
+                      type="email" name="email" value={formData.email} onChange={handleChange}
+                      placeholder="your@email.com"
+                      className={`${inputBase} ${errors.email ? 'border-red-500/60 focus:border-red-500' : 'focus:border-[#C9A96E]'}`}
+                    />
+                    {errors.email && <p className="font-mono-dm text-[9px] text-red-400 mt-2 tracking-wider">{errors.email}</p>}
+                  </div>
+
+                  {/* Message */}
+                  <div>
+                    <label className="font-mono-dm text-[10px] text-[#C9A96E]/60 tracking-[0.25em] uppercase block mb-3">Message</label>
+                    <textarea
+                      name="message" rows={5} value={formData.message} onChange={handleChange}
+                      placeholder="Tell me about the role or project..."
+                      className={`${inputBase} resize-none ${errors.message ? 'border-red-500/60 focus:border-red-500' : 'focus:border-[#C9A96E]'}`}
+                    />
+                    {errors.message && <p className="font-mono-dm text-[9px] text-red-400 mt-2 tracking-wider">{errors.message}</p>}
+                  </div>
+
+                  {/* Error state */}
+                  {status === 'error' && (
+                    <div className="flex items-center gap-3 px-4 py-3 rounded-lg" style={{ background: 'rgba(226,75,74,0.08)', border: '1px solid rgba(226,75,74,0.2)' }}>
+                      <AlertCircle size={14} className="text-red-400 flex-shrink-0" />
+                      <p className="font-mono-dm text-[10px] text-red-400 tracking-wider">Failed to send. Please try emailing directly at webalchemistlabs@gmail.com</p>
+                    </div>
+                  )}
+
                   <button
                     type="submit"
                     disabled={status === 'sending'}
-                    className="w-full bg-accent hover:bg-accent-hover text-white font-mono-dm text-[10px] py-4 tracking-[0.2em] uppercase transition-colors flex items-center justify-center gap-3 disabled:opacity-50"
+                    className="group inline-flex items-center gap-3 font-mono-dm text-[11px] px-8 py-4 tracking-[0.15em] uppercase transition-all duration-300 disabled:opacity-40"
+                    style={{ color: '#F2EFE8', border: '1px solid rgba(255,255,255,0.16)' }}
+                    onMouseEnter={e => { const el = e.currentTarget as HTMLElement; if (status !== 'sending') { el.style.borderColor = '#C9A96E'; el.style.color = '#C9A96E' } }}
+                    onMouseLeave={e => { const el = e.currentTarget as HTMLElement; el.style.borderColor = 'rgba(255,255,255,0.16)'; el.style.color = '#F2EFE8' }}
                   >
-                    {status === 'sending' ? 'Sending...' : (<>Send Message <Send size={12} /></>)}
+                    {status === 'sending' ? (
+                      <>
+                        <span className="inline-block w-3 h-3 border border-current border-t-transparent rounded-full animate-spin" />
+                        Sending...
+                      </>
+                    ) : (
+                      <>Send message <Send size={13} className="group-hover:translate-x-0.5 transition-transform" /></>
+                    )}
                   </button>
-                </div>
-              </form>
-            )}
-          </Reveal>
+
+                </form>
+              )}
+            </Reveal>
+          </div>
+
         </div>
       </div>
     </section>

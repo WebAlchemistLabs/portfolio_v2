@@ -2,25 +2,33 @@
 
 import { useRef } from 'react'
 import { motion, useInView } from 'framer-motion'
+import Image from 'next/image'
 
-const stack = ['React', 'Next.js', 'TypeScript', 'Tailwind CSS', 'Firebase', 'Node.js', 'MySQL', 'Stripe', 'Figma', 'Git']
-
-const stats = [
-  { value: '4+', label: 'Projects shipped' },
-  { value: '2', label: 'Diplomas' },
-  { value: '10+', label: 'Technologies' },
-  { value: '2027', label: 'Degree expected' },
+const traits = [
+  'Web Application Developer',
+  'Software Developer',
+  'Business Focused Solutions',
+  'UX Minded Interfaces',
+  'Scalable Digital Products',
 ]
 
-function Reveal({ children, delay = 0 }: { children: React.ReactNode; delay?: number }) {
+const bullets = [
+  'Application focused projects with realistic business use cases',
+  'Strong structure across interface, logic, and workflow design',
+  'Polished user experience backed by practical system behaviour',
+  'Hands on delivery across booking, commerce, dashboard, and support tools',
+]
+
+function Reveal({ children, delay = 0, className = '' }: { children: React.ReactNode; delay?: number; className?: string }) {
   const ref = useRef(null)
-  const inView = useInView(ref, { once: true, margin: '-60px' })
+  const inView = useInView(ref, { once: true, margin: '-70px' })
   return (
     <motion.div
       ref={ref}
-      initial={{ opacity: 0, y: 20 }}
+      className={className}
+      initial={{ opacity: 0, y: 28 }}
       animate={inView ? { opacity: 1, y: 0 } : {}}
-      transition={{ duration: 0.6, delay, ease: [0.16, 1, 0.3, 1] }}
+      transition={{ duration: 0.85, delay, ease: [0.16, 1, 0.3, 1] }}
     >
       {children}
     </motion.div>
@@ -29,72 +37,123 @@ function Reveal({ children, delay = 0 }: { children: React.ReactNode; delay?: nu
 
 export default function About() {
   return (
-    <section id="about" className="py-24 md:py-32 px-6 md:px-12 border-t border-[#1A1A1A]">
-      <div className="max-w-[1400px] mx-auto">
+    <section id="about" className="py-28 md:py-40 px-8 md:px-12 border-t border-[#2A2A36]">
+      <div className="max-w-[1320px] mx-auto">
 
         <Reveal>
-          <div className="flex items-center gap-4 mb-16">
-            <span className="font-mono-dm text-[10px] text-[#444444] tracking-[0.3em] uppercase">02 / About</span>
-            <div className="flex-1 h-px bg-[#1A1A1A]" />
+          <div className="flex items-center gap-5 mb-20">
+            <span className="font-mono-dm text-[10px] text-[#C9A96E]/60 tracking-[0.3em] uppercase">01 About</span>
+            <div className="flex-1 h-px bg-[#2A2A36]" />
           </div>
         </Reveal>
 
-        <div className="grid md:grid-cols-2 gap-16 lg:gap-32">
-          <div>
-            <Reveal>
-              <h2 className="font-body font-black text-4xl md:text-6xl text-[#EFEFEF] leading-[1.05] tracking-tight mb-10">
-                I build things
-                <br />
-                <span className="text-[#2A2A2A]">people use.</span>
+        <div className="grid lg:grid-cols-12 gap-14 lg:gap-20 items-start">
+
+          {/* Photo */}
+          <Reveal className="lg:col-span-4" delay={0.05}>
+            <div className="relative">
+              <div
+                className="relative rounded-2xl overflow-hidden"
+                style={{
+                  border: '1px solid #2A2A36',
+                  aspectRatio: '3/4',
+                  maxHeight: 480,
+                }}
+              >
+                <Image
+                  src="/M1.jpg"
+                  alt="Marlon Haynes"
+                  fill
+                  className="object-cover object-top"
+                />
+                <div
+                  className="absolute inset-0"
+                  style={{ background: 'linear-gradient(to top, rgba(14,14,18,0.7) 0%, transparent 50%)' }}
+                />
+              </div>
+              {/* Name card below image */}
+              <div className="mt-5">
+                <h3 className="font-display text-2xl font-semibold text-[#F2EFE8] mb-1">Marlon Haynes</h3>
+                <p className="font-mono-dm text-[10px] text-[#9B97A0] tracking-widest uppercase">Web Application Developer · Toronto, Canada</p>
+              </div>
+            </div>
+          </Reveal>
+
+          {/* Content */}
+          <div className="lg:col-span-8">
+
+            <Reveal delay={0.1}>
+              <p className="font-mono-dm text-[11px] text-[#C9A96E]/70 tracking-[0.25em] uppercase mb-4">About Me</p>
+              <h2 className="font-display text-[clamp(32px,4vw,56px)] font-semibold text-[#F2EFE8] leading-tight mb-8">
+                Building products that solve real problems.
               </h2>
             </Reveal>
-            <Reveal delay={0.1}>
-              <div className="space-y-5 text-sm text-[#888888] leading-relaxed font-body mb-10">
-                <p>Software Engineering student at Centennial College completing an advanced diploma. I have shipped real SaaS products, e-commerce platforms, and IT tooling — not just tutorial projects.</p>
-                <p>My focus is frontend and full-stack development with a strong pull toward UI/UX. I care about the details: fast load times, clean interactions, accessible interfaces, code that scales.</p>
-                <p>Looking for my first paid tech role. Ready to ship product on day one.</p>
-              </div>
-            </Reveal>
-            <Reveal delay={0.2}>
-              <div className="grid grid-cols-2 gap-px bg-[#1A1A1A] border border-[#1A1A1A]">
-                {stats.map((s) => (
-                  <div key={s.label} className="bg-[#0A0A0A] p-6">
-                    <div className="font-body font-black text-3xl text-accent mb-1">{s.value}</div>
-                    <div className="font-mono-dm text-[10px] text-[#444444] tracking-widest uppercase">{s.label}</div>
-                  </div>
-                ))}
-              </div>
-            </Reveal>
-          </div>
 
-          <div>
-            <Reveal delay={0.1}>
-              <p className="font-mono-dm text-[10px] text-[#444444] tracking-[0.3em] uppercase mb-6">Stack</p>
-              <div className="flex flex-wrap gap-2 mb-12">
-                {stack.map((tech) => (
-                  <span key={tech} className="font-mono-dm text-[10px] text-[#888888] border border-[#1A1A1A] px-3 py-2 hover:border-[#333333] hover:text-[#EFEFEF] transition-all tracking-wider uppercase">
-                    {tech}
+            <Reveal delay={0.15}>
+              {/* Trait badges */}
+              <div className="flex flex-wrap gap-2 mb-8">
+                {traits.map((t) => (
+                  <span
+                    key={t}
+                    className="font-mono-dm text-[10px] px-4 py-2 rounded-full tracking-wider"
+                    style={{
+                      background: 'rgba(255,255,255,0.04)',
+                      border: '1px solid #2A2A36',
+                      color: '#9B97A0',
+                    }}
+                  >
+                    {t}
                   </span>
                 ))}
               </div>
             </Reveal>
+
             <Reveal delay={0.2}>
-              <p className="font-mono-dm text-[10px] text-[#444444] tracking-[0.3em] uppercase mb-6">Currently</p>
-              <div className="space-y-4">
-                {[
-                  { dot: 'bg-accent', text: 'Software Engineering Technology diploma — Centennial College (May 2027)' },
-                  { dot: 'bg-accent', text: 'Building BizTrack — SaaS analytics dashboard with Firebase' },
-                  { dot: 'bg-accent', text: 'Google UX Design Professional Certificate' },
-                  { dot: 'bg-green-400', text: 'Open to frontend, UI/UX, and full-stack roles in Canada' },
-                ].map((item, i) => (
-                  <div key={i} className="flex items-start gap-3">
-                    <span className={`w-1 h-1 rounded-full ${item.dot} mt-2 flex-shrink-0`} />
-                    <span className="font-body text-sm text-[#888888] leading-relaxed">{item.text}</span>
-                  </div>
+              <div className="space-y-5 mb-10">
+                <p className="text-base text-[#B8B4C0] leading-relaxed font-light">
+                  I build web applications and digital products designed to solve real operational challenges. My work combines interface quality, practical logic, and business value, so each product is polished, usable, and built for outcomes.
+                </p>
+                <p className="text-base text-[#B8B4C0] leading-relaxed font-light">
+                  I completed the Software Engineering Technician diploma and continue to expand through hands on application projects. My focus spans software development, web application development, support systems, and UX, where product thinking and implementation quality both matter.
+                </p>
+              </div>
+            </Reveal>
+
+            <Reveal delay={0.25}>
+              <ul className="space-y-3 mb-12">
+                {bullets.map((b, i) => (
+                  <li key={i} className="flex items-start gap-3">
+                    <div className="w-1 h-1 rounded-full bg-[#C9A96E] mt-2.5 flex-shrink-0" />
+                    <span className="text-sm text-[#9B97A0] leading-relaxed font-light">{b}</span>
+                  </li>
                 ))}
+              </ul>
+            </Reveal>
+
+            <Reveal delay={0.3}>
+              <div className="flex flex-wrap items-center gap-4">
+                <a
+                  href="#projects"
+                  className="inline-flex items-center gap-2 font-mono-dm text-[11px] px-7 py-3.5 tracking-[0.15em] uppercase transition-all duration-300"
+                  style={{ background: 'rgba(201,169,110,0.12)', border: '1px solid rgba(201,169,110,0.35)', color: '#C9A96E' }}
+                  onMouseEnter={e => { const el = e.currentTarget as HTMLElement; el.style.background = 'rgba(201,169,110,0.22)'; el.style.borderColor = 'rgba(201,169,110,0.6)' }}
+                  onMouseLeave={e => { const el = e.currentTarget as HTMLElement; el.style.background = 'rgba(201,169,110,0.12)'; el.style.borderColor = 'rgba(201,169,110,0.35)' }}
+                >
+                  View Projects
+                </a>
+                <a
+                  href="#contact"
+                  className="inline-flex items-center gap-2 font-mono-dm text-[11px] px-7 py-3.5 tracking-[0.15em] uppercase transition-all duration-300"
+                  style={{ border: '1px solid rgba(255,255,255,0.12)', color: 'rgba(242,239,232,0.65)' }}
+                  onMouseEnter={e => { const el = e.currentTarget as HTMLElement; el.style.borderColor = 'rgba(255,255,255,0.3)'; el.style.color = '#F2EFE8' }}
+                  onMouseLeave={e => { const el = e.currentTarget as HTMLElement; el.style.borderColor = 'rgba(255,255,255,0.12)'; el.style.color = 'rgba(242,239,232,0.65)' }}
+                >
+                  Contact Me
+                </a>
               </div>
             </Reveal>
           </div>
+
         </div>
       </div>
     </section>
