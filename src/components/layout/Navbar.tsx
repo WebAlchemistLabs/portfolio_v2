@@ -1,6 +1,7 @@
 'use client'
 
 import { useState, useEffect } from 'react'
+import Image from 'next/image'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Menu, X } from 'lucide-react'
 import { cn } from '@/lib/utils'
@@ -35,14 +36,23 @@ export default function Navbar() {
         )}
       >
         <div className="max-w-[1320px] mx-auto px-8 md:px-12 h-16 flex items-center justify-between">
-          <a href="#" className="font-display italic text-xl text-[#F2EFE8] hover:text-[#C9A96E] transition-colors">MH</a>
+          <a href="#" className="inline-flex items-center" aria-label="Home">
+            <Image
+              src="/logo.png"
+              alt="Marlon Haynes logo"
+              width={60}
+              height={60}
+              className="h-[60px] w-[60px] object-contain"
+              priority
+            />
+          </a>
 
           <nav className="hidden md:flex items-center gap-8">
             {navLinks.map((l) => (
               <a
                 key={l.label}
                 href={l.href}
-                className="font-mono-dm text-[11px] text-[#9B97A0] hover:text-[#F2EFE8] transition-colors tracking-[0.14em] uppercase"
+                className="font-mono-dm text-[11px] text-white hover:text-[#F2EFE8] transition-colors tracking-[0.14em] uppercase"
               >
                 {l.label}
               </a>
@@ -54,7 +64,7 @@ export default function Navbar() {
               href="/Marlon Haynes resume.pdf"
               target="_blank"
               rel="noopener noreferrer"
-              className="font-mono-dm text-[11px] text-[#9B97A0] hover:text-[#F2EFE8] transition-colors tracking-[0.14em] uppercase"
+              className="font-mono-dm text-[11px] text-white hover:text-[#F2EFE8] transition-colors tracking-[0.14em] uppercase"
             >
               Resume
             </a>
@@ -101,7 +111,7 @@ export default function Navbar() {
                 href="/Marlon Haynes resume.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="font-mono-dm text-[11px] text-[#9B97A0] tracking-widest uppercase"
+                className="font-mono-dm text-[11px] text-white tracking-widest uppercase"
               >
                 Resume
               </a>
