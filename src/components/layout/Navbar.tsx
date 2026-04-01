@@ -76,7 +76,7 @@ export default function Navbar() {
             </a>
           </div>
 
-          <button className="md:hidden text-[#9B97A0] hover:text-[#F2EFE8]" onClick={() => setOpen(!open)}>
+          <button className="md:hidden text-white hover:text-[#F2EFE8]" onClick={() => setOpen(!open)}>
             {open ? <X size={20} /> : <Menu size={20} />}
           </button>
         </div>
