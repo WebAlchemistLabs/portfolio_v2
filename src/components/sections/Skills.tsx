@@ -22,10 +22,10 @@ const skillGroups = [
     skills: [
       'Node.js',
       'REST APIs',
-      'Firebase',
-      'Firestore',
-      'MySQL',
+      'Firebase / Firestore',
+      'Authentication (JWT / Session-Based)',
       'SQL',
+      'Data Modeling',
       'Database Design',
       'API Integration',
     ],
@@ -36,7 +36,7 @@ const skillGroups = [
       'Technical Troubleshooting',
       'Ticket Management',
       'Root Cause Analysis',
-      'Windows',
+      'Windows OS',
       'Linux',
       'Microsoft 365',
       'Azure Fundamentals',
@@ -50,8 +50,8 @@ const skillGroups = [
       'GitHub',
       'Jenkins',
       'Docker',
-      'VS Code',
-      'Android Studio',
+      'Postman',
+      'Remote Debugging (Chrome DevTools / RDP)',
       'Figma',
       'Vercel',
     ],
@@ -100,15 +100,14 @@ export default function Skills() {
         </Reveal>
 
         {/*
-          Mobile:  2 columns (2×2 grid)
-          Tablet:  2 columns
-          Desktop: 4 columns
-          grid-cols-2 covers mobile + tablet, lg:grid-cols-4 kicks in at 1024px+
+          Mobile:  2×2 grid — items align to their own top (self-start fixes
+                   the "Tools & Workflow" hanging low next to Systems & Support)
+          Desktop: 4 columns, standard alignment
         */}
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8 lg:gap-8">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8 lg:gap-8 items-start">
           {skillGroups.map((group, i) => (
-            <Reveal key={group.category} delay={i * 0.1}>
-              <div className="h-full">
+            <Reveal key={group.category} delay={i * 0.1} className="self-start">
+              <div>
                 <p className="font-mono-dm text-[10px] text-[#C9A96E]/70 tracking-[0.25em] uppercase mb-4 pb-3 border-b border-[#2A2A36]">
                   {group.category}
                 </p>
