@@ -61,16 +61,8 @@ export default function Navbar() {
 
           <div className="hidden md:flex items-center gap-5">
             <a
-              href="/Marlon Haynes resume.pdf"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="font-mono-dm text-[11px] text-white hover:text-[#F2EFE8] transition-colors tracking-[0.14em] uppercase"
-            >
-              Resume
-            </a>
-            <a
               href="#contact"
-              className="font-mono-dm text-[11px] text-[#C9A96E] border border-[#C9A96E]/40 hover:border-[#C9A96E] px-5 py-2 transition-all tracking-[0.14em] uppercase"
+              className="font-mono-dm text-[11px] text-white border border-[#C9A96E]/40 hover:border-[#C9A96E] px-5 py-2 transition-all tracking-[0.14em] uppercase"
             >
               Hire me
             </a>
@@ -106,16 +98,8 @@ export default function Navbar() {
                 {l.label}
               </motion.a>
             ))}
-            <div className="flex items-center gap-6 mt-10 pt-8 border-t border-[#2A2A36]">
-              <a
-                href="/Marlon Haynes resume.pdf"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="font-mono-dm text-[11px] text-white tracking-widest uppercase"
-              >
-                Resume
-              </a>
-              <a href="#contact" className="font-mono-dm text-[11px] text-[#C9A96E] tracking-widest uppercase">Hire me</a>
+            <div className="flex items-center mt-10 pt-8 border-t border-[#2A2A36]">
+              <a href="#contact" className="font-mono-dm text-[11px] text-white tracking-widest uppercase">Hire me</a>
             </div>
           </motion.div>
         )}

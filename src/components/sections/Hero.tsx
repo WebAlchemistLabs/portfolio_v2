@@ -4,7 +4,13 @@ import { useEffect, useState } from 'react'
 import { motion } from 'framer-motion'
 import { ArrowDown, GitBranch, Link, Mail } from 'lucide-react'
 
-const roles = ['Frontend Developer', 'UI/UX Developer', 'React Developer', 'Full-Stack Developer']
+const roles = [
+  'Full Stack Developer',
+  'Web Application Systems',
+  'Technical Support & Troubleshooting',
+  'SaaS & API Integration',
+  'Business-Focused Solutions',
+]
 
 export default function Hero() {
   const [roleIndex, setRoleIndex] = useState(0)
@@ -125,7 +131,7 @@ export default function Hero() {
             transition={{ delay: 1.3, duration: 0.8 }}
             className="flex items-center gap-4 mb-12"
           >
-            <span className="font-mono-dm text-[11px] tracking-widest uppercase" style={{ color: 'rgba(155,151,160,0.7)' }}>Currently:</span>
+            <span className="font-mono-dm text-[11px] tracking-widest uppercase" style={{ color: '#F2EFE8' }}>Currently:</span>
             <span
               className="font-mono-dm text-[11px] tracking-widest uppercase transition-all duration-300"
               style={{ color: '#C9A96E', opacity: roleVisible ? 1 : 0, transform: roleVisible ? 'translateY(0)' : 'translateY(5px)' }}
