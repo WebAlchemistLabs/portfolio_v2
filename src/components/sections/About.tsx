@@ -5,18 +5,18 @@ import { motion, useInView } from 'framer-motion'
 import Image from 'next/image'
 
 const traits = [
-  'Web Application Developer',
-  'Software Developer',
-  'Business Focused Solutions',
-  'UX Minded Interfaces',
-  'Scalable Digital Products',
+  'Full Stack Developer',
+  'Web Application Systems',
+  'Technical Support & Troubleshooting',
+  'SaaS & API Integration',
+  'Business-Focused Solutions',
 ]
 
 const bullets = [
-  'Application focused projects with realistic business use cases',
-  'Strong structure across interface, logic, and workflow design',
-  'Polished user experience backed by practical system behaviour',
-  'Hands on delivery across booking, commerce, dashboard, and support tools',
+  'Built and supported full-stack applications with real world business use cases',
+  'Strong troubleshooting across frontend, backend, and user environments',
+  'Experience with ticketing systems and structured issue resolution workflows',
+  'Delivered scalable solutions across booking, e-commerce, dashboards, and support tools',
 ]
 
 function Reveal({ children, delay = 0, className = '' }: { children: React.ReactNode; delay?: number; className?: string }) {
@@ -71,10 +71,12 @@ export default function About() {
                   style={{ background: 'linear-gradient(to top, rgba(14,14,18,0.7) 0%, transparent 50%)' }}
                 />
               </div>
-              {/* Name card below image */}
+
               <div className="mt-5">
                 <h3 className="font-display text-2xl font-semibold text-[#F2EFE8] mb-1">Marlon Haynes</h3>
-                <p className="font-mono-dm text-[10px] text-[#9B97A0] tracking-widest uppercase">Web Application Developer · Toronto, Canada</p>
+                <p className="font-mono-dm text-[10px] text-[#9B97A0] tracking-widest uppercase">
+                  Full Stack Developer · Technical Support · Toronto, Canada
+                </p>
               </div>
             </div>
           </Reveal>
@@ -85,12 +87,11 @@ export default function About() {
             <Reveal delay={0.1}>
               <p className="font-mono-dm text-[11px] text-[#C9A96E]/70 tracking-[0.25em] uppercase mb-4">About Me</p>
               <h2 className="font-display text-[clamp(32px,4vw,56px)] font-semibold text-[#F2EFE8] leading-tight mb-8">
-                Building products that solve real problems.
+                Building scalable systems and solving real world technical problems.
               </h2>
             </Reveal>
 
             <Reveal delay={0.15}>
-              {/* Trait badges */}
               <div className="flex flex-wrap gap-2 mb-8">
                 {traits.map((t) => (
                   <span
@@ -111,10 +112,10 @@ export default function About() {
             <Reveal delay={0.2}>
               <div className="space-y-5 mb-10">
                 <p className="text-base text-[#B8B4C0] leading-relaxed font-light">
-                  I build web applications and digital products designed to solve real operational challenges. My work combines interface quality, practical logic, and business value, so each product is polished, usable, and built for outcomes.
+                  I build full-stack web applications and digital systems designed to solve real operational challenges. My work focuses on scalable architecture, clean interfaces, and practical business outcomes.
                 </p>
                 <p className="text-base text-[#B8B4C0] leading-relaxed font-light">
-                  I completed the Software Engineering Technician diploma and continue to expand through hands on application projects. My focus spans software development, web application development, support systems, and UX, where product thinking and implementation quality both matter.
+                  Alongside development, I actively support and troubleshoot systems across user environments, diagnosing issues, resolving technical problems, and improving workflows. This combination allows me to understand both how systems are built and how they perform in real world use.
                 </p>
               </div>
             </Reveal>
@@ -132,28 +133,19 @@ export default function About() {
 
             <Reveal delay={0.3}>
               <div className="flex flex-wrap items-center gap-4">
-                <a
-                  href="#projects"
-                  className="inline-flex items-center gap-2 font-mono-dm text-[11px] px-7 py-3.5 tracking-[0.15em] uppercase transition-all duration-300"
-                  style={{ background: 'rgba(201,169,110,0.12)', border: '1px solid rgba(201,169,110,0.35)', color: '#C9A96E' }}
-                  onMouseEnter={e => { const el = e.currentTarget as HTMLElement; el.style.background = 'rgba(201,169,110,0.22)'; el.style.borderColor = 'rgba(201,169,110,0.6)' }}
-                  onMouseLeave={e => { const el = e.currentTarget as HTMLElement; el.style.background = 'rgba(201,169,110,0.12)'; el.style.borderColor = 'rgba(201,169,110,0.35)' }}
-                >
+                <a href="#projects" className="inline-flex items-center gap-2 font-mono-dm text-[11px] px-7 py-3.5 tracking-[0.15em] uppercase transition-all duration-300"
+                  style={{ background: 'rgba(201,169,110,0.12)', border: '1px solid rgba(201,169,110,0.35)', color: '#C9A96E' }}>
                   View Projects
                 </a>
-                <a
-                  href="#contact"
-                  className="inline-flex items-center gap-2 font-mono-dm text-[11px] px-7 py-3.5 tracking-[0.15em] uppercase transition-all duration-300"
-                  style={{ border: '1px solid rgba(255,255,255,0.12)', color: 'rgba(242,239,232,0.65)' }}
-                  onMouseEnter={e => { const el = e.currentTarget as HTMLElement; el.style.borderColor = 'rgba(255,255,255,0.3)'; el.style.color = '#F2EFE8' }}
-                  onMouseLeave={e => { const el = e.currentTarget as HTMLElement; el.style.borderColor = 'rgba(255,255,255,0.12)'; el.style.color = 'rgba(242,239,232,0.65)' }}
-                >
+
+                <a href="#contact" className="inline-flex items-center gap-2 font-mono-dm text-[11px] px-7 py-3.5 tracking-[0.15em] uppercase transition-all duration-300"
+                  style={{ border: '1px solid rgba(255,255,255,0.12)', color: 'rgba(242,239,232,0.65)' }}>
                   Contact Me
                 </a>
               </div>
             </Reveal>
-          </div>
 
+          </div>
         </div>
       </div>
     </section>

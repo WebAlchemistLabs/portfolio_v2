@@ -15,11 +15,11 @@ const dmMono = DM_Mono({
 })
 
 export const metadata: Metadata = {
-  title: 'Marlon Haynes | Frontend Developer',
+  title: 'Marlon Haynes',
   description: 'Full-stack developer building high-performance web apps and digital products. Available for frontend, UI/UX, and full-stack roles in Canada.',
   keywords: ['frontend developer', 'React', 'Next.js', 'Canada', 'UI/UX', 'WebAlchemistLabs'],
   openGraph: {
-    title: 'Marlon Haynes | Frontend Developer',
+    title: 'Marlon Haynes',
     description: 'Building high-performance web apps and digital products.',
     type: 'website',
   },
