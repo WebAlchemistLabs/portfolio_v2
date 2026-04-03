@@ -79,20 +79,20 @@ export const projects: Project[] = [
   {
     id: 'booking',
     slug: 'booking',
-    title: 'NorBec Landscaping',
-    tagline: 'Online booking platform for service-based businesses',
+    title: 'Noir Gym',
+    tagline: 'Online gym class and session booking platform',
     description:
-      'A production-ready booking platform built for a local landscaping company, enabling customers to browse services and submit booking requests online.',
+      'A production ready booking platform built for a local gym, enabling members to view classes and book training sessions online.',
     problem:
-      'The business had no online presence and relied entirely on referrals. Potential customers searching for landscaping services could not find them, resulting in lost revenue.',
+      'The business needed a streamlined online booking flow to reduce manual scheduling and make classes easier to discover and reserve.',
     solution:
-      'Designed and developed a mobile-first, SEO-optimised website with a service catalogue, a structured booking request form, and a clean visual identity aligned with the company brand.',
+      'Designed and developed a mobile first booking experience with class listings, a structured reservation flow, and a clean visual identity aligned with the gym brand.',
     impact:
-      'Delivered a client-ready product that established the business online, gave customers a clear path to book services, and demonstrated the ability to translate a real business need into a functional digital product.',
+      'Delivered a client ready product that gives members a clear path to reserve sessions, improves booking conversion, and demonstrates the ability to ship practical business focused web solutions.',
     tags: ['Next.js', 'Tailwind CSS', 'Responsive Design', 'SEO', 'Vercel'],
-    link: 'https://norbec-landscaping-website.onrender.com',
-    github: 'https://github.com/WebAlchemistLabs/norbec-landscaping-website',
-    image: '/booking.png',
+    link: 'https://gym-booking-y6xx.onrender.com/',
+    github: 'https://github.com/WebAlchemistLabs/Gym_Booking',
+    image: '/gym_booking.png',
     featured: true,
     badge: 'Client Work',
   },
