@@ -90,7 +90,7 @@ export const projects: Project[] = [
     impact:
       'Delivered a client ready product that gives members a clear path to reserve sessions, improves booking conversion, and demonstrates the ability to ship practical business focused web solutions.',
     tags: ['Next.js', 'Tailwind CSS', 'Responsive Design', 'SEO', 'Vercel'],
-    link: 'https://gym-booking-y6xx.onrender.com/',
+    link: 'https://gym-booking-two.vercel.app/',
     github: 'https://github.com/WebAlchemistLabs/Gym_Booking',
     image: '/gym_booking.png',
     featured: true,
