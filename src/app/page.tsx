@@ -17,7 +17,11 @@ export default function Home() {
       <Hero />
       <CredibilityBar />
       <About />
+<<<<<<< HEAD
 <Projects />
+=======
+      <Projects />
+>>>>>>> 344f380f5dfbf782627728b1ac7a4a9d0f8b59f7
       <Skills />
       <Education />
       <Contact />

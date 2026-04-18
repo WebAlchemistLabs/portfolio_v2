@@ -5,10 +5,18 @@ import { motion } from 'framer-motion'
 import { ArrowDown, GitBranch, Link, Mail } from 'lucide-react'
 
 const roles = [
+<<<<<<< HEAD
   'Frontend Developer',
   'Software Developer',
   'QA Engineer',
   'IT Support Specialist',
+=======
+  'Full Stack Developer',
+  'Web Application Systems',
+  'Technical Support & Troubleshooting',
+  'SaaS & API Integration',
+  'Business-Focused Solutions',
+>>>>>>> 344f380f5dfbf782627728b1ac7a4a9d0f8b59f7
 ]
 
 export default function Hero() {
@@ -119,7 +127,11 @@ export default function Hero() {
                 maxWidth: 720,
               }}
             >
+<<<<<<< HEAD
               Full Stack Developer focused on building scalable and reliable web applications
+=======
+              I build high-performance web apps & digital products that are scalable, fast, and built for real impact.
+>>>>>>> 344f380f5dfbf782627728b1ac7a4a9d0f8b59f7
             </motion.p>
           </div>
 
@@ -130,7 +142,11 @@ export default function Hero() {
             transition={{ delay: 1.3, duration: 0.8 }}
             className="flex items-center gap-4 mb-12"
           >
+<<<<<<< HEAD
             <span className="font-mono-dm text-[11px] tracking-widest uppercase" style={{ color: '#F2EFE8' }}>Open to:</span>
+=======
+            <span className="font-mono-dm text-[11px] tracking-widest uppercase" style={{ color: '#F2EFE8' }}>Currently:</span>
+>>>>>>> 344f380f5dfbf782627728b1ac7a4a9d0f8b59f7
             <span
               className="font-mono-dm text-[11px] tracking-widest uppercase transition-all duration-300"
               style={{ color: '#C9A96E', opacity: roleVisible ? 1 : 0, transform: roleVisible ? 'translateY(0)' : 'translateY(5px)' }}

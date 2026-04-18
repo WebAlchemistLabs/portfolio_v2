@@ -97,7 +97,11 @@ export default function Contact() {
                   transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
                   className="font-display text-[clamp(34px,4.5vw,64px)] italic text-[#F2EFE8] leading-[1.05]"
                 >
+<<<<<<< HEAD
                   Let's build
+=======
+                  Let us build
+>>>>>>> 344f380f5dfbf782627728b1ac7a4a9d0f8b59f7
                 </motion.h2>
               </div>
               <div className="overflow-hidden pb-2 mb-10">
@@ -109,17 +113,25 @@ export default function Contact() {
                   className="font-display text-[clamp(34px,4.5vw,64px)] leading-[1.05]"
                   style={{ color: 'rgba(242,239,232,0.2)' }}
                 >
+<<<<<<< HEAD
                   something valuable.
+=======
+                  something great.
+>>>>>>> 344f380f5dfbf782627728b1ac7a4a9d0f8b59f7
                 </motion.h2>
               </div>
             </Reveal>
 
             <Reveal delay={0.15}>
               <p className="text-sm text-[#9B97A0] leading-relaxed font-light mb-12 max-w-sm">
+<<<<<<< HEAD
                 I am open to opportunities where I can contribute to building reliable and effective software systems.
               </p>
               <p className="text-sm text-[#9B97A0] leading-relaxed font-light mb-12 max-w-sm">
                 If you have a role or project to discuss, feel free to reach out. I aim to respond within 24 hours.
+=======
+                Actively seeking frontend, UI/UX, and full-stack roles in Canada. Have an opportunity or project? I respond within 24 hours.
+>>>>>>> 344f380f5dfbf782627728b1ac7a4a9d0f8b59f7
               </p>
             </Reveal>
 
@@ -182,7 +194,11 @@ export default function Contact() {
                     <label className="font-mono-dm text-[10px] text-[#C9A96E]/60 tracking-[0.25em] uppercase block mb-3">Message</label>
                     <textarea
                       name="message" rows={5} value={formData.message} onChange={handleChange}
+<<<<<<< HEAD
                       placeholder="Please share details about your project or opportunity"
+=======
+                      placeholder="Tell me about the role or project..."
+>>>>>>> 344f380f5dfbf782627728b1ac7a4a9d0f8b59f7
                       className={`${inputBase} resize-none ${errors.message ? 'border-red-500/60 focus:border-red-500' : 'focus:border-[#C9A96E]'}`}
                     />
                     {errors.message && <p className="font-mono-dm text-[9px] text-red-400 mt-2 tracking-wider">{errors.message}</p>}
