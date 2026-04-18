@@ -8,10 +8,6 @@ export type Project = {
   solution: string
   impact: string
   tags: string[]
-<<<<<<< HEAD
-  roles?: string[]
-=======
->>>>>>> 344f380f5dfbf782627728b1ac7a4a9d0f8b59f7
   link?: string
   github?: string
   image?: string
@@ -34,10 +30,6 @@ export const projects: Project[] = [
     impact:
       'Agencies can deliver live client dashboards instead of static PDFs, reducing reporting time by hours each week and improving client retention through full transparency.',
     tags: ['React', 'Next.js', 'Firebase', 'Firestore', 'Tailwind CSS', 'TypeScript'],
-<<<<<<< HEAD
-    roles: ['Frontend Dev', 'Software Dev', 'QA'],
-=======
->>>>>>> 344f380f5dfbf782627728b1ac7a4a9d0f8b59f7
     link: 'https://clientpulse-six.vercel.app/login',
     github: 'https://github.com/WebAlchemistLabs/CLIENTPULSE',
     image: '/clientpulse1.png',
@@ -58,10 +50,6 @@ export const projects: Project[] = [
     impact:
       'Proves ability to integrate payment APIs, handle sensitive data securely, and deliver a complete full-stack application that a real business could use immediately.',
     tags: ['React', 'Firebase', 'Stripe', 'Node.js', 'Tailwind CSS'],
-<<<<<<< HEAD
-    roles: ['Frontend Dev', 'Software Dev'],
-=======
->>>>>>> 344f380f5dfbf782627728b1ac7a4a9d0f8b59f7
     link: 'https://webalchemistlabs-ecommerce.vercel.app/',
     github: 'https://github.com/WebAlchemistLabs/web-alchemist-labs-ecommerce',
     image: '/ecommerce.png',
@@ -82,10 +70,6 @@ export const projects: Project[] = [
     impact:
       'Directly targets IT support and help desk roles, demonstrating a solid understanding of real enterprise tooling and the ability to build internal productivity systems.',
     tags: ['React', 'MySQL', 'Node.js', 'REST API', 'Tailwind CSS'],
-<<<<<<< HEAD
-    roles: ['IT Support', 'Software Dev', 'QA'],
-=======
->>>>>>> 344f380f5dfbf782627728b1ac7a4a9d0f8b59f7
     link: 'https://helpdesk-pro-scrr.onrender.com/',
     github: 'https://github.com/WebAlchemistLabs/helpdesk-pro',
     image: '/helpdesk.png',
@@ -106,10 +90,6 @@ export const projects: Project[] = [
     impact:
       'Delivered a client ready product that gives members a clear path to reserve sessions, improves booking conversion, and demonstrates the ability to ship practical business focused web solutions.',
     tags: ['Next.js', 'Tailwind CSS', 'Responsive Design', 'SEO', 'Vercel'],
-<<<<<<< HEAD
-    roles: ['Frontend Dev', 'Software Dev'],
-=======
->>>>>>> 344f380f5dfbf782627728b1ac7a4a9d0f8b59f7
     link: 'https://gym-booking-two.vercel.app/',
     github: 'https://github.com/WebAlchemistLabs/Gym_Booking',
     image: '/gym_booking.png',

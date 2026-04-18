@@ -44,7 +44,6 @@ const skillGroups = [
     ],
   },
   {
-<<<<<<< HEAD
     category: 'QA & Testing',
     skills: [
       'Manual Testing',
@@ -58,8 +57,6 @@ const skillGroups = [
     ],
   },
   {
-=======
->>>>>>> 344f380f5dfbf782627728b1ac7a4a9d0f8b59f7
     category: 'Tools & Workflow',
     skills: [
       'Git',
@@ -115,16 +112,7 @@ export default function Skills() {
           </div>
         </Reveal>
 
-        {/*
-          Mobile:  2×2 grid — items align to their own top (self-start fixes
-                   the "Tools & Workflow" hanging low next to Systems & Support)
-          Desktop: 4 columns, standard alignment
-        */}
-<<<<<<< HEAD
         <div className="grid grid-cols-2 md:grid-cols-3 xl:grid-cols-5 gap-6 md:gap-8 items-start">
-=======
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8 lg:gap-8 items-start">
->>>>>>> 344f380f5dfbf782627728b1ac7a4a9d0f8b59f7
           {skillGroups.map((group, i) => (
             <Reveal key={group.category} delay={i * 0.1} className="self-start">
               <div>
