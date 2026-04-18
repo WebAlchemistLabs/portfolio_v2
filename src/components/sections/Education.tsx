@@ -6,19 +6,6 @@ import { ChevronDown, ChevronUp } from 'lucide-react'
 
 const education = [
   {
-<<<<<<< HEAD
-=======
-    title: 'Software Engineering Technology Advanced Diploma',
-    institution: 'Centennial College',
-    location: 'Toronto, Ontario',
-    status: 'Currently Enrolled',
-    statusType: 'active',
-    date: 'Expected April 2027',
-    description:
-      'Advancing technical depth in software engineering with emphasis on scalable systems, structured software design, and production-quality application development. Degree pathway program.',
-  },
-  {
->>>>>>> 344f380f5dfbf782627728b1ac7a4a9d0f8b59f7
     title: 'Software Engineering Technician Diploma',
     institution: 'Centennial College',
     location: 'Toronto, Ontario',
@@ -26,11 +13,7 @@ const education = [
     statusType: 'done',
     date: 'December 2025',
     description:
-<<<<<<< HEAD
       'Comprehensive program covering application development, software architecture, and practical implementation. Developed hands on experience in programming, database systems, testing, and collaborative project work.',
-=======
-      'Software engineering program centred on application development, software architecture, and practical implementation. Built strong hands on experience across programming, databases, testing, and collaborative delivery.',
->>>>>>> 344f380f5dfbf782627728b1ac7a4a9d0f8b59f7
   },
   {
     title: 'Google UX Design Professional Certificate',
@@ -40,7 +23,6 @@ const education = [
     statusType: 'done',
     date: 'July 2025',
     description:
-<<<<<<< HEAD
       'Professional program focused on user research, interface design, prototyping, and usability testing. Applied user centered design principles to improve product structure and overall user experience.',
   },
   {
@@ -52,9 +34,6 @@ const education = [
     date: 'Expected April 2027',
     description:
       'Focused on advanced software engineering concepts including scalable system design, application architecture, and development of production ready applications. This program builds strong technical depth in modern software development practices.',
-=======
-      'Comprehensive UX program covering user research, interface design, prototyping, and usability testing. Applied UX principles to improve product structure and navigation flow across digital products.',
->>>>>>> 344f380f5dfbf782627728b1ac7a4a9d0f8b59f7
   },
 ]
 
@@ -145,11 +124,7 @@ export default function Education() {
         <Reveal delay={0.08}>
           <div className="mb-14">
             <h2 className="font-display text-[clamp(28px,3.5vw,52px)] italic text-[#F2EFE8] leading-[0.95]">
-<<<<<<< HEAD
               Education
-=======
-              Academic background.
->>>>>>> 344f380f5dfbf782627728b1ac7a4a9d0f8b59f7
             </h2>
           </div>
         </Reveal>

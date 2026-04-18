@@ -1,38 +1,9 @@
 'use client'
 
-import { useEffect, useState } from 'react'
 import { motion } from 'framer-motion'
 import { ArrowDown, GitBranch, Link, Mail } from 'lucide-react'
 
-const roles = [
-<<<<<<< HEAD
-  'Frontend Developer',
-  'Software Developer',
-  'QA Engineer',
-  'IT Support Specialist',
-=======
-  'Full Stack Developer',
-  'Web Application Systems',
-  'Technical Support & Troubleshooting',
-  'SaaS & API Integration',
-  'Business-Focused Solutions',
->>>>>>> 344f380f5dfbf782627728b1ac7a4a9d0f8b59f7
-]
-
 export default function Hero() {
-  const [roleIndex, setRoleIndex] = useState(0)
-  const [roleVisible, setRoleVisible] = useState(true)
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setRoleVisible(false)
-      setTimeout(() => {
-        setRoleIndex((i) => (i + 1) % roles.length)
-        setRoleVisible(true)
-      }, 400)
-    }, 3000)
-    return () => clearInterval(interval)
-  }, [])
 
   return (
     <section className="relative w-full min-h-screen overflow-hidden flex items-center justify-center py-20">
@@ -98,7 +69,7 @@ export default function Hero() {
                 className="font-mono-dm text-[18px] md:text-2xl tracking-[0.3em] uppercase mb-4"
                 style={{ color: '#C9A96E' }}
               >
-                Hi, I'm
+                Hello, I am
               </motion.p>
             </div>
             <div className="overflow-hidden">
@@ -127,33 +98,9 @@ export default function Hero() {
                 maxWidth: 720,
               }}
             >
-<<<<<<< HEAD
-              Full Stack Developer focused on building scalable and reliable web applications
-=======
-              I build high-performance web apps & digital products that are scalable, fast, and built for real impact.
->>>>>>> 344f380f5dfbf782627728b1ac7a4a9d0f8b59f7
+              I design and develop scalable web applications and digital products built for performance, reliability, and real world use.
             </motion.p>
           </div>
-
-          {/* Role ticker */}
-          <motion.div
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 1.3, duration: 0.8 }}
-            className="flex items-center gap-4 mb-12"
-          >
-<<<<<<< HEAD
-            <span className="font-mono-dm text-[11px] tracking-widest uppercase" style={{ color: '#F2EFE8' }}>Open to:</span>
-=======
-            <span className="font-mono-dm text-[11px] tracking-widest uppercase" style={{ color: '#F2EFE8' }}>Currently:</span>
->>>>>>> 344f380f5dfbf782627728b1ac7a4a9d0f8b59f7
-            <span
-              className="font-mono-dm text-[11px] tracking-widest uppercase transition-all duration-300"
-              style={{ color: '#C9A96E', opacity: roleVisible ? 1 : 0, transform: roleVisible ? 'translateY(0)' : 'translateY(5px)' }}
-            >
-              {roles[roleIndex]}
-            </span>
-          </motion.div>
 
           {/* CTAs */}
           <motion.div

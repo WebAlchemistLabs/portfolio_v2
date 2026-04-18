@@ -87,11 +87,7 @@ export default function About() {
             <Reveal delay={0.1}>
               <p className="font-mono-dm text-[11px] text-[#C9A96E]/70 tracking-[0.25em] uppercase mb-4">About Me</p>
               <h2 className="font-display text-[clamp(32px,4vw,56px)] font-semibold text-[#F2EFE8] leading-tight mb-8">
-<<<<<<< HEAD
                 Building systems that are reliable, efficient, and ready for real use
-=======
-                Building scalable systems and solving real world technical problems.
->>>>>>> 344f380f5dfbf782627728b1ac7a4a9d0f8b59f7
               </h2>
             </Reveal>
 
@@ -116,7 +112,6 @@ export default function About() {
             <Reveal delay={0.2}>
               <div className="space-y-5 mb-10">
                 <p className="text-base text-[#B8B4C0] leading-relaxed font-light">
-<<<<<<< HEAD
                   I am a full stack developer with a strong focus on building practical applications that go beyond basic demos.
                 </p>
                 <p className="text-base text-[#B8B4C0] leading-relaxed font-light">
@@ -130,12 +125,6 @@ export default function About() {
                 </p>
                 <p className="text-base text-[#B8B4C0] leading-relaxed font-light">
                   I am currently open to opportunities in frontend development, full stack development, quality assurance, and IT support roles.
-=======
-                  I build full-stack web applications and digital systems designed to solve real operational challenges. My work focuses on scalable architecture, clean interfaces, and practical business outcomes.
-                </p>
-                <p className="text-base text-[#B8B4C0] leading-relaxed font-light">
-                  Alongside development, I actively support and troubleshoot systems across user environments, diagnosing issues, resolving technical problems, and improving workflows. This combination allows me to understand both how systems are built and how they perform in real world use.
->>>>>>> 344f380f5dfbf782627728b1ac7a4a9d0f8b59f7
                 </p>
               </div>
             </Reveal>
