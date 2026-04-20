@@ -34,9 +34,9 @@ export const projects: Project[] = [
     id: 'pristine-pro-cleanops-ai',
     slug: 'pristine-pro-cleanops-ai',
     title: 'Multi Tenant SaaS Platform for Cleaning Operations Management',
-    tagline: 'A full stack SaaS application designed to manage bookings customers teams and operations across multiple cleaning businesses in a single system.',
+    tagline: '',
     description:
-      'A production ready platform built to manage bookings scheduling and day to day cleaning operations. Designed to give service based businesses full control over customer requests team coordination and performance tracking in one system.',
+      'A production ready multi tenant SaaS platform for managing bookings customers teams and operations across multiple cleaning businesses in a single system.',
     overview:
       'A multi-tenant SaaS platform built to help cleaning businesses manage jobs, teams, and client operations through one centralized system.',
     problem:
@@ -133,9 +133,9 @@ export const projects: Project[] = [
     id: 'movemaster-pro',
     slug: 'movemaster-pro',
     title: 'Logistics and Moving Platform with Real Time Quotes and Booking System',
-    tagline: 'A full stack logistics platform designed to handle real time quote generation booking workflows pricing logic and service operations from request to job completion',
+    tagline: '',
     description:
-      'A production ready platform built to handle moving service quotes bookings and operational workflows. Designed to give businesses a structured system for managing customer requests pricing logic and service execution from start to finish.',
+      'A production ready logistics platform designed to handle real time quote generation booking workflows pricing logic and service operations from request to job completion',
     overview:
       'Built with custom pricing logic scheduling workflows authentication and backend systems for managing real world moving operations',
     systemType: 'Full Stack Logistics Platform',
@@ -224,9 +224,9 @@ export const projects: Project[] = [
     id: 'propvault',
     slug: 'propvault',
     title: 'Real Estate Marketplace Platform with Advanced Search Filtering and Real Time Data',
-    tagline: 'A full stack real estate platform designed for property discovery search filtering comparison and real time data handling across listings users and transactions',
+    tagline: '',
     description:
-      'A production ready platform built for discovering and exploring real estate listings. Designed to help users search filter and compare properties through a clean and structured interface that simplifies the decision making process.',
+      'A production ready real estate marketplace platform for property discovery advanced search filtering comparison and real time data handling across listings users and transactions',
     overview:
       'Built with real time database syncing authentication storage systems and dynamic filtering logic for managing property data and user interactions',
     systemType: 'Full Stack Marketplace Platform',
@@ -316,9 +316,9 @@ export const projects: Project[] = [
     id: 'web-alchemist-ecommerce',
     slug: 'web-alchemist-ecommerce',
     title: 'Full Stack E Commerce Platform with Cart Checkout and Payment System',
-    tagline: 'A production ready e commerce platform designed to handle product listings cart management checkout workflows payment processing and order handling from browsing to purchase completion',
+    tagline: '',
     description:
-      'A production ready e-commerce system built to handle product browsing cart management and secure checkout. Designed to simulate a real online store experience with authentication product data and a complete purchase flow.',
+      'A production ready e commerce platform designed to handle product listings cart management checkout workflows payment processing and order handling from browsing to purchase completion',
     overview:
       'Built with authentication state management secure payment integration and full order lifecycle handling for real world commerce use',
     problem:
