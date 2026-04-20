@@ -7,9 +7,10 @@ import { Menu, X } from 'lucide-react'
 import { cn } from '@/lib/utils'
 
 const navLinks = [
-  { label: 'About', href: '#about' },
+  { label: 'Home', href: '#home' },
   { label: 'Projects', href: '#projects' },
   { label: 'Skills', href: '#skills' },
+  { label: 'About', href: '#about' },
   { label: 'Education', href: '#education' },
   { label: 'Contact', href: '#contact' },
 ]
@@ -36,7 +37,7 @@ export default function Navbar() {
         )}
       >
         <div className="max-w-[1320px] mx-auto px-8 md:px-12 h-16 flex items-center justify-between">
-          <a href="#" className="inline-flex items-center" aria-label="Home">
+          <a href="#home" className="inline-flex items-center" aria-label="Home">
             <Image
               src="/logo.png"
               alt="Marlon Haynes logo"

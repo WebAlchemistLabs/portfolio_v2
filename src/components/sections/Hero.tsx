@@ -5,7 +5,7 @@ import { ArrowDown, GitBranch, Link, Mail } from 'lucide-react'
 
 export default function Hero() {
   return (
-    <section className="relative w-full min-h-screen overflow-hidden flex items-center justify-center py-20">
+    <section id="home" className="relative w-full min-h-screen overflow-hidden flex items-center justify-center py-20">
       <div
         className="absolute inset-0 z-0"
         style={{

@@ -17,83 +17,80 @@ export type Project = {
 
 export const projects: Project[] = [
   {
-    id: 'clientpulse',
-    slug: 'clientpulse',
-    title: 'ClientPulse',
-    tagline: 'Multi-client SaaS reporting platform',
+    id: 'pristine-pro-cleanops-ai',
+    slug: 'pristine-pro-cleanops-ai',
+    title: 'Pristine Pro (CleanOps AI)',
+    tagline: 'AI-assisted cleaning operations platform',
     description:
-      'A premium SaaS platform built for agencies and freelancers to manage client reporting, analytics dashboards, and performance tracking in one place.',
+      'An operations-focused platform designed to streamline cleaning workflows, team coordination, and day-to-day service execution with AI-powered support.',
     problem:
-      'Agencies spend hours manually compiling client reports across disconnected tools. No single product provides a clean, real-time view of all client performance data.',
+      'Service teams often rely on scattered tools and manual updates, making job tracking, communication, and quality control harder than necessary.',
     solution:
-      'Built a multi-tenant SaaS dashboard with Firebase Auth, Firestore real-time listeners, role-based access for admins and clients, custom reporting modules, and data visualization charts.',
+      'Built a centralized platform experience that brings scheduling, workflow visibility, and operational updates into one dashboard-style interface.',
     impact:
-      'Agencies can deliver live client dashboards instead of static PDFs, reducing reporting time by hours each week and improving client retention through full transparency.',
-    tags: ['React', 'Next.js', 'Firebase', 'Firestore', 'Tailwind CSS', 'TypeScript'],
-    link: 'https://clientpulse-six.vercel.app/login',
-    github: 'https://github.com/WebAlchemistLabs/CLIENTPULSE',
-    image: '/clientpulse1.png',
+      'Improves clarity across operations, reduces manual handoffs, and gives teams a cleaner system for managing service delivery at scale.',
+    tags: ['Next.js', 'TypeScript', 'Tailwind CSS', 'React', 'Vercel'],
+    link: 'https://cleanops-eta.vercel.app/',
+    github: 'https://github.com/WebAlchemistLabs/cleanops',
     featured: true,
-    badge: 'SaaS',
+    badge: 'Operations',
   },
   {
-    id: 'ecommerce',
-    slug: 'ecommerce',
-    title: 'E-Commerce Platform',
+    id: 'movemaster-pro',
+    slug: 'movemaster-pro',
+    title: 'MoveMaster Pro',
+    tagline: 'Moving services workflow and booking platform',
+    description:
+      'A business-oriented platform for organizing moving services, managing requests, and creating a more structured client journey from inquiry to execution.',
+    problem:
+      'Moving businesses often manage customer requests through fragmented channels, which slows response time and increases scheduling errors.',
+    solution:
+      'Built a streamlined service platform with clear flows for client intake, service details, and operational follow-through in a single web experience.',
+    impact:
+      'Helps teams respond faster, stay organized, and provide a smoother client experience during high-pressure service operations.',
+    tags: ['Next.js', 'TypeScript', 'Tailwind CSS', 'React', 'Vercel'],
+    link: 'https://movemaster-seven.vercel.app/',
+    github: 'https://github.com/WebAlchemistLabs/movemaster',
+    featured: true,
+    badge: 'Service Platform',
+  },
+  {
+    id: 'propvault',
+    slug: 'propvault',
+    title: 'PropVault',
+    tagline: 'Property operations and listing management app',
+    description:
+      'A property-focused web application built to support listing organization, workflow visibility, and cleaner management of property-related operations.',
+    problem:
+      'Property workflows are frequently scattered across spreadsheets and messages, making it difficult to maintain consistency and operational transparency.',
+    solution:
+      'Built a centralized product experience that organizes property data and process flow into one intuitive interface for easier day-to-day management.',
+    impact:
+      'Improves operational control, reduces information gaps, and gives teams a stronger foundation for scaling property workflows.',
+    tags: ['Next.js', 'TypeScript', 'Tailwind CSS', 'React', 'Vercel'],
+    link: 'https://prop-vault-sage.vercel.app/',
+    github: 'https://github.com/WebAlchemistLabs/PropVault',
+    featured: true,
+    badge: 'PropTech',
+  },
+  {
+    id: 'web-alchemist-ecommerce',
+    slug: 'web-alchemist-ecommerce',
+    title: 'Web Alchemist E-Commerce',
     tagline: 'Full-stack store with Stripe payments',
     description:
-      'A fully functional e-commerce web application with product listings, cart management, user authentication, and live Stripe checkout — production-ready from day one.',
+      'A full e-commerce web application with product catalog, cart flow, authentication, and live checkout for a complete online purchasing experience.',
     problem:
-      'Most e-commerce demos stop at the UI layer. Building a real store requires auth, a live database, payment processing, webhooks, and order management — all connected.',
+      'Many e-commerce demos stop at visuals and lack real transaction flow, making them unusable for real operational needs.',
     solution:
-      'Built end-to-end with Firebase Auth for accounts, Firestore for product and order data, and Stripe for secure checkout with webhook-based order confirmation.',
+      'Implemented an end-to-end commerce workflow with account handling, product and order persistence, and secure payment integration.',
     impact:
-      'Proves ability to integrate payment APIs, handle sensitive data securely, and deliver a complete full-stack application that a real business could use immediately.',
+      'Demonstrates production-ready full-stack execution for commerce use cases, including checkout reliability and data-backed order flow.',
     tags: ['React', 'Firebase', 'Stripe', 'Node.js', 'Tailwind CSS'],
-    link: 'https://webalchemistlabs-ecommerce.vercel.app/',
+    link: 'https://webalchemistlabs-ecommerce.vercel.app',
     github: 'https://github.com/WebAlchemistLabs/web-alchemist-labs-ecommerce',
     image: '/ecommerce.png',
     featured: true,
     badge: 'Full-Stack',
-  },
-  {
-    id: 'help-desk',
-    slug: 'help-desk',
-    title: 'Help Desk System',
-    tagline: 'IT support ticket management platform',
-    description:
-      'A web-based IT ticketing system with user submission, agent dashboards, ticket lifecycle management, priority tagging, and status tracking built for real support teams.',
-    problem:
-      'Small IT teams rely on email threads and spreadsheets to manage support requests, leading to slow resolution times, lost tickets, and zero visibility into agent performance.',
-    solution:
-      'Built a full ticket management system with submission forms, an agent command dashboard, ticket status workflow from open through to resolved, and priority classification.',
-    impact:
-      'Directly targets IT support and help desk roles, demonstrating a solid understanding of real enterprise tooling and the ability to build internal productivity systems.',
-    tags: ['React', 'MySQL', 'Node.js', 'REST API', 'Tailwind CSS'],
-    link: 'https://helpdesk-pro-scrr.onrender.com/',
-    github: 'https://github.com/WebAlchemistLabs/helpdesk-pro',
-    image: '/helpdesk.png',
-    featured: true,
-    badge: 'IT / Support',
-  },
-  {
-    id: 'booking',
-    slug: 'booking',
-    title: 'Noir Gym',
-    tagline: 'Online gym class and session booking platform',
-    description:
-      'A production ready booking platform built for a local gym, enabling members to view classes and book training sessions online.',
-    problem:
-      'The business needed a streamlined online booking flow to reduce manual scheduling and make classes easier to discover and reserve.',
-    solution:
-      'Designed and developed a mobile first booking experience with class listings, a structured reservation flow, and a clean visual identity aligned with the gym brand.',
-    impact:
-      'Delivered a client ready product that gives members a clear path to reserve sessions, improves booking conversion, and demonstrates the ability to ship practical business focused web solutions.',
-    tags: ['Next.js', 'Tailwind CSS', 'Responsive Design', 'SEO', 'Vercel'],
-    link: 'https://gym-booking-two.vercel.app/',
-    github: 'https://github.com/WebAlchemistLabs/Gym_Booking',
-    image: '/gym_booking.png',
-    featured: true,
-    badge: 'Client Work',
   },
 ]
