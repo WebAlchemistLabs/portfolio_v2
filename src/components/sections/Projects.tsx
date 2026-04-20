@@ -94,22 +94,25 @@ function ProjectCard({ project, index }: { project: typeof projects[0]; index: n
                 {project.impact}
               </p>
             </div>
+
+            {project.features && project.features.length > 0 && (
+              <div className="mb-8">
+                <p className="font-mono-dm text-[9px] text-[#C9A96E]/60 tracking-widest uppercase mb-3">
+                  Key Features
+                </p>
+                <ul className="space-y-2.5 max-w-xl">
+                  {project.features.map((feature) => (
+                    <li key={feature} className="flex gap-2.5 text-sm text-[#B8B4C0] leading-relaxed font-light">
+                      <span className="text-[#C9A96E]/70">•</span>
+                      <span>{feature}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            )}
           </div>
 
           <div>
-            {/* Tags */}
-            <div className="flex flex-wrap gap-1.5 mb-8">
-              {project.tags.map((tag) => (
-                <span
-                  key={tag}
-                  className="font-mono-dm text-[8px] px-2.5 py-1 tracking-wider uppercase"
-                  style={{ background: 'rgba(255,255,255,0.04)', border: '1px solid #2A2A36', color: '#4A4755' }}
-                >
-                  {tag}
-                </span>
-              ))}
-            </div>
-
             {/* Actions */}
             <div className="flex flex-wrap items-center gap-4">
               {project.link && (
@@ -122,7 +125,7 @@ function ProjectCard({ project, index }: { project: typeof projects[0]; index: n
                   onMouseEnter={e => { const el = e.currentTarget as HTMLElement; el.style.background = 'rgba(201,169,110,0.22)'; el.style.borderColor = 'rgba(201,169,110,0.7)' }}
                   onMouseLeave={e => { const el = e.currentTarget as HTMLElement; el.style.background = 'rgba(201,169,110,0.12)'; el.style.borderColor = 'rgba(201,169,110,0.4)' }}
                 >
-                  <ExternalLink size={11} /> Live Demo
+                  <ExternalLink size={11} /> Live Platform
                 </a>
               )}
               {project.github && (
@@ -135,46 +138,74 @@ function ProjectCard({ project, index }: { project: typeof projects[0]; index: n
                   onMouseEnter={e => { const el = e.currentTarget as HTMLElement; el.style.borderColor = 'rgba(255,255,255,0.2)'; el.style.color = '#F2EFE8' }}
                   onMouseLeave={e => { const el = e.currentTarget as HTMLElement; el.style.borderColor = '#2A2A36'; el.style.color = '#9B97A0' }}
                 >
-                  <GitBranch size={11} /> GitHub
+                  <GitBranch size={11} /> View Code
                 </a>
               )}
-              <Link
-                href={`/projects/${project.slug}`}
-                className="inline-flex items-center gap-1.5 font-mono-dm text-[10px] tracking-widest uppercase transition-colors duration-300 ml-auto"
-                style={{ color: '#4A4755' }}
-                onMouseEnter={e => (e.currentTarget as HTMLElement).style.color = '#C9A96E'}
-                onMouseLeave={e => (e.currentTarget as HTMLElement).style.color = '#4A4755'}
-              >
-                Case Study <ArrowUpRight size={11} />
-              </Link>
             </div>
           </div>
         </div>
 
         {/* Image */}
-        <div className="relative overflow-hidden lg:[direction:ltr] w-full" style={{ aspectRatio: '16/10', minHeight: 320 }}>
-          {project.image ? (
-            <Image
-              src={project.image}
-              alt={project.title}
-              fill
-              className="object-cover object-top transition-transform duration-700"
-              sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 660px"
-              style={{ transform: hovered ? 'scale(1.04)' : 'scale(1)' }}
+        <div className="flex flex-col lg:[direction:ltr] w-full p-6 md:p-8 gap-5 justify-center">
+          <div className="relative overflow-hidden rounded-2xl" style={{ aspectRatio: '16/10', minHeight: 320 }}>
+            {project.link ? (
+              <a
+                href={project.link}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="block w-full h-full"
+                aria-label={`${project.title} live demo`}
+              >
+                {project.image ? (
+                  <Image
+                    src={project.image}
+                    alt={project.title}
+                    fill
+                    className="object-cover object-top transition-transform duration-700"
+                    sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 660px"
+                    style={{ transform: hovered ? 'scale(1.04)' : 'scale(1)' }}
+                  />
+                ) : (
+                  <div className="w-full h-full flex items-center justify-center" style={{ background: '#1E1E26' }}>
+                    <span className="font-mono-dm text-[10px] text-[#4A4755] tracking-widest uppercase">{project.title}</span>
+                  </div>
+                )}
+              </a>
+            ) : project.image ? (
+              <Image
+                src={project.image}
+                alt={project.title}
+                fill
+                className="object-cover object-top transition-transform duration-700"
+                sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 660px"
+                style={{ transform: hovered ? 'scale(1.04)' : 'scale(1)' }}
+              />
+            ) : (
+              <div className="w-full h-full flex items-center justify-center" style={{ background: '#1E1E26' }}>
+                <span className="font-mono-dm text-[10px] text-[#4A4755] tracking-widest uppercase">{project.title}</span>
+              </div>
+            )}
+            {/* Gradient blend toward content panel */}
+            <div
+              className="absolute inset-y-0 pointer-events-none w-16"
+              style={{
+                [imageRight ? 'left' : 'right']: 0,
+                background: `linear-gradient(to ${imageRight ? 'right' : 'left'}, #16161C, transparent)`,
+              }}
             />
-          ) : (
-            <div className="w-full h-full flex items-center justify-center" style={{ background: '#1E1E26' }}>
-              <span className="font-mono-dm text-[10px] text-[#4A4755] tracking-widest uppercase">{project.title}</span>
-            </div>
-          )}
-          {/* Gradient blend toward content panel */}
-          <div
-            className="absolute inset-y-0 pointer-events-none w-16"
+          </div>
+
+          <Link
+            href={`/projects/${project.slug}`}
+            className="inline-flex items-center justify-center gap-2 self-center min-w-[220px] rounded-full font-mono-dm text-[14px] px-10 py-5 tracking-[0.18em] uppercase transition-all duration-300"
             style={{
-              [imageRight ? 'left' : 'right']: 0,
-              background: `linear-gradient(to ${imageRight ? 'right' : 'left'}, #16161C, transparent)`,
+              border: '1px solid rgba(201,169,110,0.35)',
+              background: 'rgba(201,169,110,0.08)',
+              color: hovered ? '#F2EFE8' : '#C9A96E',
             }}
-          />
+          >
+            Case Study <ArrowUpRight size={14} />
+          </Link>
         </div>
       </div>
     </motion.div>
