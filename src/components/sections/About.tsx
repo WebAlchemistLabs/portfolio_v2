@@ -87,7 +87,7 @@ export default function About() {
             <Reveal delay={0.1}>
               <p className="font-mono-dm text-[11px] text-[#C9A96E]/70 tracking-[0.25em] uppercase mb-4">About Me</p>
               <h2 className="font-display text-[clamp(32px,4vw,56px)] font-semibold text-[#F2EFE8] leading-tight mb-8">
-                Building systems that are reliable, efficient, and ready for real use
+                I build systems that are reliable, efficient, and ready for real use
               </h2>
             </Reveal>
 

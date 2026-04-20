@@ -47,7 +47,7 @@ function ProjectCard({ project, index }: { project: typeof projects[0]; index: n
       <div className={`grid lg:grid-cols-2 min-h-[480px] ${!imageRight ? 'lg:[direction:rtl]' : ''}`}>
 
         {/* Content */}
-        <div className="flex flex-col justify-between p-8 md:p-12 lg:p-14 lg:[direction:ltr]">
+        <div className="flex flex-col justify-between p-5 sm:p-6 md:p-12 lg:p-14 lg:[direction:ltr]">
           <div>
             {/* Number + badge */}
             <div className="flex items-center justify-between mb-8">
@@ -67,15 +67,15 @@ function ProjectCard({ project, index }: { project: typeof projects[0]; index: n
 
             {/* Title */}
             <h3
-              className="font-display italic leading-tight mb-2 transition-colors duration-300"
+              className="font-display italic leading-tight mb-2 transition-colors duration-300 break-words"
               style={{
-                fontSize: 'clamp(32px, 3.5vw, 52px)',
+                fontSize: 'clamp(24px, 7vw, 52px)',
                 color: hovered ? '#C9A96E' : '#F2EFE8',
               }}
             >
               {project.title}
             </h3>
-            <p className="font-mono-dm text-[10px] text-[#4A4755] tracking-[0.25em] uppercase mb-6">
+            <p className="font-mono-dm text-[9px] sm:text-[10px] text-[#4A4755] tracking-[0.14em] sm:tracking-[0.25em] uppercase mb-5 sm:mb-6 break-words">
               {project.tagline}
             </p>
             <p className="text-sm text-[#9B97A0] leading-relaxed font-light mb-8 max-w-md">
@@ -114,13 +114,13 @@ function ProjectCard({ project, index }: { project: typeof projects[0]; index: n
 
           <div>
             {/* Actions */}
-            <div className="flex flex-wrap items-center gap-4">
+            <div className="flex flex-col sm:flex-row sm:flex-wrap items-stretch sm:items-center gap-3 sm:gap-4">
               {project.link && (
                 <a
                   href={project.link}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 font-mono-dm text-[10px] px-6 py-3 tracking-widest uppercase transition-all duration-300"
+                  className="inline-flex w-full sm:w-auto justify-center items-center gap-2 font-mono-dm text-[10px] px-5 sm:px-6 py-3 tracking-[0.14em] sm:tracking-widest uppercase transition-all duration-300"
                   style={{ background: 'rgba(201,169,110,0.12)', border: '1px solid rgba(201,169,110,0.4)', color: '#C9A96E' }}
                   onMouseEnter={e => { const el = e.currentTarget as HTMLElement; el.style.background = 'rgba(201,169,110,0.22)'; el.style.borderColor = 'rgba(201,169,110,0.7)' }}
                   onMouseLeave={e => { const el = e.currentTarget as HTMLElement; el.style.background = 'rgba(201,169,110,0.12)'; el.style.borderColor = 'rgba(201,169,110,0.4)' }}
@@ -133,7 +133,7 @@ function ProjectCard({ project, index }: { project: typeof projects[0]; index: n
                   href={project.github}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 font-mono-dm text-[10px] px-6 py-3 tracking-widest uppercase transition-all duration-300"
+                  className="inline-flex w-full sm:w-auto justify-center items-center gap-2 font-mono-dm text-[10px] px-5 sm:px-6 py-3 tracking-[0.14em] sm:tracking-widest uppercase transition-all duration-300"
                   style={{ border: '1px solid #2A2A36', color: '#9B97A0' }}
                   onMouseEnter={e => { const el = e.currentTarget as HTMLElement; el.style.borderColor = 'rgba(255,255,255,0.2)'; el.style.color = '#F2EFE8' }}
                   onMouseLeave={e => { const el = e.currentTarget as HTMLElement; el.style.borderColor = '#2A2A36'; el.style.color = '#9B97A0' }}
@@ -146,8 +146,8 @@ function ProjectCard({ project, index }: { project: typeof projects[0]; index: n
         </div>
 
         {/* Image */}
-        <div className="flex flex-col lg:[direction:ltr] w-full p-6 md:p-8 gap-5 justify-center">
-          <div className="relative overflow-hidden rounded-2xl" style={{ aspectRatio: '16/10', minHeight: 320 }}>
+        <div className="flex flex-col lg:[direction:ltr] w-full p-5 sm:p-6 md:p-8 gap-4 sm:gap-5 justify-center">
+          <div className="relative overflow-hidden rounded-2xl" style={{ aspectRatio: '16/10', minHeight: 220 }}>
             {project.link ? (
               <a
                 href={project.link}
@@ -197,7 +197,7 @@ function ProjectCard({ project, index }: { project: typeof projects[0]; index: n
 
           <Link
             href={`/projects/${project.slug}`}
-            className="inline-flex items-center justify-center gap-2 self-center min-w-[220px] rounded-full font-mono-dm text-[14px] px-10 py-5 tracking-[0.18em] uppercase transition-all duration-300"
+            className="inline-flex items-center justify-center gap-2 self-center w-full sm:w-auto sm:min-w-[220px] rounded-full font-mono-dm text-[12px] sm:text-[14px] px-6 sm:px-10 py-4 sm:py-5 tracking-[0.14em] sm:tracking-[0.18em] uppercase transition-all duration-300"
             style={{
               border: '1px solid rgba(201,169,110,0.35)',
               background: 'rgba(201,169,110,0.08)',
@@ -214,7 +214,7 @@ function ProjectCard({ project, index }: { project: typeof projects[0]; index: n
 
 export default function Projects() {
   return (
-    <section id="projects" className="py-28 md:py-40 px-8 md:px-12 border-t border-[#2A2A36]">
+    <section id="projects" className="py-24 md:py-40 px-4 sm:px-6 md:px-12 border-t border-[#2A2A36]">
       <div className="max-w-[1320px] mx-auto">
 
         <Reveal>
