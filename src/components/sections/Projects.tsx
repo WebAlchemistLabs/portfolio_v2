@@ -39,21 +39,21 @@ function ProjectCard({ project, index }: { project: typeof projects[0]; index: n
       initial={{ opacity: 0, y: 32 }}
       animate={inView ? { opacity: 1, y: 0 } : {}}
       transition={{ duration: 1, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
-      className="relative rounded-2xl overflow-hidden"
+      className="relative w-full max-w-full rounded-2xl overflow-hidden"
       style={{ background: '#16161C', border: hovered ? '1px solid #3A3A48' : '1px solid #2A2A36', transition: 'border-color 0.3s' }}
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
     >
-      <div className={`grid lg:grid-cols-2 min-h-[480px] ${!imageRight ? 'lg:[direction:rtl]' : ''}`}>
+      <div className={`grid lg:grid-cols-2 min-h-[480px] min-w-0 ${!imageRight ? 'lg:[direction:rtl]' : ''}`}>
 
         {/* Content */}
-        <div className="flex flex-col justify-between p-5 sm:p-6 md:p-12 lg:p-14 lg:[direction:ltr]">
+        <div className="min-w-0 flex flex-col justify-between p-5 sm:p-6 md:p-12 lg:p-14 lg:[direction:ltr]">
           <div>
             {/* Number + badge */}
             <div className="flex items-center justify-between mb-8">
               {project.badge && (
                 <span
-                  className="font-mono-dm text-[9px] px-3 py-1.5 tracking-widest uppercase"
+                  className="font-mono-dm text-[9px] px-3 py-1.5 tracking-widest uppercase text-center whitespace-normal break-words"
                   style={{
                     background: 'rgba(201,169,110,0.1)',
                     border: '1px solid rgba(201,169,110,0.35)',
@@ -102,9 +102,9 @@ function ProjectCard({ project, index }: { project: typeof projects[0]; index: n
                 </p>
                 <ul className="space-y-2.5 max-w-xl">
                   {project.features.map((feature) => (
-                    <li key={feature} className="flex gap-2.5 text-sm text-[#B8B4C0] leading-relaxed font-light">
+                    <li key={feature} className="flex items-start gap-2.5 text-sm text-[#B8B4C0] leading-relaxed font-light min-w-0">
                       <span className="text-[#C9A96E]/70">•</span>
-                      <span>{feature}</span>
+                      <span className="min-w-0 break-words">{feature}</span>
                     </li>
                   ))}
                 </ul>
@@ -146,8 +146,8 @@ function ProjectCard({ project, index }: { project: typeof projects[0]; index: n
         </div>
 
         {/* Image */}
-        <div className="flex flex-col lg:[direction:ltr] w-full p-5 sm:p-6 md:p-8 gap-4 sm:gap-5 justify-center">
-          <div className="relative overflow-hidden rounded-2xl" style={{ aspectRatio: '16/10', minHeight: 220 }}>
+        <div className="min-w-0 flex flex-col lg:[direction:ltr] w-full max-w-full p-5 sm:p-6 md:p-8 gap-4 sm:gap-5 justify-center">
+          <div className="relative w-full max-w-full overflow-hidden rounded-2xl" style={{ aspectRatio: '16/10', minHeight: 220 }}>
             {project.link ? (
               <a
                 href={project.link}
@@ -214,7 +214,7 @@ function ProjectCard({ project, index }: { project: typeof projects[0]; index: n
 
 export default function Projects() {
   return (
-    <section id="projects" className="py-24 md:py-40 px-4 sm:px-6 md:px-12 border-t border-[#2A2A36]">
+    <section id="projects" className="py-24 md:py-40 px-3 sm:px-6 md:px-12 border-t border-[#2A2A36] overflow-x-clip">
       <div className="max-w-[1320px] mx-auto">
 
         <Reveal>
