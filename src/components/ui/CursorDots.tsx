@@ -6,17 +6,20 @@ const TRAIL = 14
 
 export default function CursorDots() {
   const canvasRef = useRef<HTMLCanvasElement>(null)
-  const [isMobile, setIsMobile] = useState(false)
+  const [isDesktopPointer, setIsDesktopPointer] = useState(false)
 
   useEffect(() => {
-    const checkMobile = () => setIsMobile(window.innerWidth < 768)
-    checkMobile()
-    window.addEventListener('resize', checkMobile)
-    return () => window.removeEventListener('resize', checkMobile)
+    const mediaQuery = window.matchMedia('(hover: hover) and (pointer: fine)')
+    const checkPointer = () => setIsDesktopPointer(mediaQuery.matches)
+
+    checkPointer()
+    mediaQuery.addEventListener('change', checkPointer)
+
+    return () => mediaQuery.removeEventListener('change', checkPointer)
   }, [])
 
   useEffect(() => {
-    if (isMobile) return
+    if (!isDesktopPointer) return
 
     const canvas = canvasRef.current
     if (!canvas) return
@@ -36,9 +39,11 @@ export default function CursorDots() {
     }
 
     const mouse = { x: W / 2, y: H / 2 }
+    let hasMouseMoved = false
     const trail: { x: number; y: number }[] = Array.from({ length: TRAIL }, () => ({ ...mouse }))
 
     const handleMouseMove = (e: MouseEvent) => {
+      hasMouseMoved = true
       mouse.x = e.clientX
       mouse.y = e.clientY
     }
@@ -51,6 +56,12 @@ export default function CursorDots() {
 
     const draw = () => {
       ctx.clearRect(0, 0, W, H)
+
+      if (!hasMouseMoved) {
+        raf = requestAnimationFrame(draw)
+        return
+      }
+
       trail.unshift({ x: mouse.x, y: mouse.y })
       if (trail.length > TRAIL) trail.pop()
       trail.forEach((p, i) => {
@@ -72,9 +83,9 @@ export default function CursorDots() {
       window.removeEventListener('resize', handleResize)
       window.removeEventListener('mousemove', handleMouseMove)
     }
-  }, [isMobile])
+  }, [isDesktopPointer])
 
-  if (isMobile) return null
+  if (!isDesktopPointer) return null
 
   return (
     <canvas
