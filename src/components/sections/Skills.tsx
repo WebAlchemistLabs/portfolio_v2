@@ -106,7 +106,7 @@ export default function Skills() {
         <Reveal>
           <div className="flex items-center gap-5 mb-20">
             <span className="font-mono-dm text-[10px] text-[#C9A96E]/60 tracking-[0.3em] uppercase">
-              03 — Stack
+              02 — Stack
             </span>
             <div className="flex-1 h-px bg-[#2A2A36]" />
           </div>

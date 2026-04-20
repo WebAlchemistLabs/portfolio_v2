@@ -42,7 +42,7 @@ export default function About() {
 
         <Reveal>
           <div className="flex items-center gap-5 mb-20">
-            <span className="font-mono-dm text-[10px] text-[#C9A96E]/60 tracking-[0.3em] uppercase">01 About</span>
+            <span className="font-mono-dm text-[10px] text-[#C9A96E]/60 tracking-[0.3em] uppercase">03 — About</span>
             <div className="flex-1 h-px bg-[#2A2A36]" />
           </div>
         </Reveal>

@@ -31,7 +31,6 @@ function ProjectCard({ project, index }: { project: typeof projects[0]; index: n
   const [hovered, setHovered] = useState(false)
   const ref = useRef(null)
   const inView = useInView(ref, { once: true, margin: '-60px' })
-  const num = String(index).padStart(2, '0')
   const imageRight = index % 2 === 0
 
   return (
@@ -52,12 +51,6 @@ function ProjectCard({ project, index }: { project: typeof projects[0]; index: n
           <div>
             {/* Number + badge */}
             <div className="flex items-center justify-between mb-8">
-              <span
-                className="font-mono-dm text-[10px] tracking-[0.3em] uppercase transition-colors duration-300"
-                style={{ color: hovered ? 'rgba(201,169,110,0.5)' : '#2A2A36' }}
-              >
-                {num}
-              </span>
               {project.badge && (
                 <span
                   className="font-mono-dm text-[9px] px-3 py-1.5 tracking-widest uppercase"
@@ -196,7 +189,7 @@ export default function Projects() {
         <Reveal>
           <div className="flex items-center gap-5 mb-6">
             <span className="font-mono-dm text-[10px] text-[#C9A96E]/60 tracking-[0.3em] uppercase">
-              02 — Projects
+              01 — Projects
             </span>
             <div className="flex-1 h-px bg-[#2A2A36]" />
           </div>
@@ -206,20 +199,12 @@ export default function Projects() {
           <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-4 mb-16">
             <div>
               <h2 className="font-display text-[clamp(32px,4vw,60px)] italic text-[#F2EFE8] leading-tight">
-                Projects that prove the point.
+                Featured Projects
               </h2>
               <p className="text-sm text-[#9B97A0] font-light mt-3 max-w-lg">
-                Every project is live with source code available — built for real business outcomes.
+                Full-stack applications demonstrating strong engineering fundamentals, clean architecture, and practical business solutions.
               </p>
             </div>
-            <a
-              href="https://github.com/WebAlchemistLabs"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="font-mono-dm text-[10px] text-[#4A4755] hover:text-[#C9A96E] transition-colors tracking-widest uppercase flex items-center gap-2 flex-shrink-0"
-            >
-              <GitBranch size={12} /> View GitHub
-            </a>
           </div>
         </Reveal>
 
