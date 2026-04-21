@@ -7,16 +7,15 @@ import Image from 'next/image'
 const traits = [
   'Full Stack Developer',
   'Web Application Systems',
-  'Technical Support & Troubleshooting',
   'SaaS & API Integration',
-  'Business-Focused Solutions',
+  'Business Focused Solutions',
 ]
 
 const bullets = [
-  'Built and supported full-stack applications with real world business use cases',
-  'Strong troubleshooting across frontend, backend, and user environments',
-  'Experience with ticketing systems and structured issue resolution workflows',
-  'Delivered scalable solutions across booking, e-commerce, dashboards, and support tools',
+  'Built full stack SaaS platforms with real time workflows and multi user systems',
+  'Developed booking, e commerce, and dashboard applications with complete backend logic',
+  'Implemented authentication, APIs, databases, and payment systems across projects',
+  'Strong troubleshooting across frontend, backend, and production issues',
 ]
 
 function Reveal({ children, delay = 0, className = '' }: { children: React.ReactNode; delay?: number; className?: string }) {
@@ -75,7 +74,7 @@ export default function About() {
               <div className="mt-5">
                 <h3 className="font-display text-2xl font-semibold text-[#F2EFE8] mb-1">Marlon Haynes</h3>
                 <p className="font-mono-dm text-[10px] text-[#9B97A0] tracking-widest uppercase">
-                  Full Stack Developer · Technical Support · Toronto, Canada
+                  Full Stack Developer focused on SaaS and Web Applications
                 </p>
               </div>
             </div>
@@ -112,19 +111,13 @@ export default function About() {
             <Reveal delay={0.2}>
               <div className="space-y-5 mb-10">
                 <p className="text-base text-[#B8B4C0] leading-relaxed font-light">
-                  I am a full stack developer with a strong focus on building practical applications that go beyond basic demos.
+                  I build full stack web applications focused on real world use, not demos. My work includes SaaS platforms, booking systems, dashboards, and business tools that handle real users, real data, and real workflows.
                 </p>
                 <p className="text-base text-[#B8B4C0] leading-relaxed font-light">
-                  My experience includes developing systems such as booking platforms, dashboards, and business tools that handle real users and real data.
+                  I specialize in building end to end systems with clean architecture, reliable backend logic, and intuitive user experiences. My focus is on performance, scalability, and delivering solutions that businesses can actually use.
                 </p>
                 <p className="text-base text-[#B8B4C0] leading-relaxed font-light">
-                  I work with modern technologies including React, Next.js, TypeScript, and backend systems involving APIs, authentication, and databases.
-                </p>
-                <p className="text-base text-[#B8B4C0] leading-relaxed font-light">
-                  I approach development with a focus on clarity, performance, and maintainability, while also understanding testing, debugging, and system support.
-                </p>
-                <p className="text-base text-[#B8B4C0] leading-relaxed font-light">
-                  I am currently open to opportunities in frontend development, full stack development, quality assurance, and IT support roles.
+                  Open to full time and contract full stack developer roles
                 </p>
               </div>
             </Reveal>

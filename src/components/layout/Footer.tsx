@@ -4,7 +4,7 @@ export default function Footer() {
       <div className="max-w-[1320px] mx-auto flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
         <div>
           <p className="font-display text-xl italic text-[#F2EFE8] mb-1">Marlon Haynes</p>
-          <p className="font-mono-dm text-[10px] text-[#4A4755] tracking-wider">WebAlchemistLabs · Next.js · Tailwind CSS · Framer Motion</p>
+          <p className="font-mono-dm text-[10px] text-[#4A4755] tracking-wider">Full Stack Developer focused on building scalable SaaS and web applications</p>
         </div>
         <div className="flex items-center gap-8">
           {[
